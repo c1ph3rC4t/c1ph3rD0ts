@@ -5,10 +5,18 @@
 !/.gitignore
 !/README.md
 
-# Keep system configs
+# Keep system & WM configs
 !/zsh/
 !/starship.toml
 !/oh-my-posh.json
+
+!/hypr/
+/hypr/*
+
+!/hypr/hyprland.conf
+!/hypr/binds.conf
+!/hypr/hyprpaper.conf
+!/hypr/scripts
 
 # Keep app configs
 !/nvim/
