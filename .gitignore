@@ -11,4 +11,5 @@
 !/oh-my-posh.json
 
 # Keep app configs
+!/nvim/
 !/yazi/
