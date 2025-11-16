@@ -5,7 +5,10 @@
 !/.gitignore
 !/README.md
 
-# Keep system
+# Keep system configs
 !/zsh/
 !/starship.toml
 !/oh-my-posh.json
+
+# Keep app configs
+!/yazi/
