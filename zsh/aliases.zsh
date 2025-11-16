@@ -2,6 +2,8 @@ alias c='clear'
 
 alias ip='ip -c'
 
+alias zshr='source ~/.zshrc'
+
 alias ssh='TERM=xterm-256color ssh'
 
 # File and directory managment
