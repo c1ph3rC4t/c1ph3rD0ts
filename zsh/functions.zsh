@@ -68,3 +68,13 @@ bak() {
         fi
     fi
 }
+
+# Pray
+npm() {
+  if [[ "$1" == "pray" ]]; then
+    shift
+    command npm install "$@"
+  else
+    command npm "$@"
+  fi
+}
