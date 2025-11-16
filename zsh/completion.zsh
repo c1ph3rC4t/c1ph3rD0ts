@@ -12,11 +12,13 @@ autoload -U colors && colors
 autoload -Uz compinit
 compinit
 
+# Autocd allows you to type just the name of the directory instead of cd directory
 setopt autocd
 setopt AUTO_LIST
 
-zstyle ':completion:*' completer _complete _match
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+# Set up some completions
+zstyle ':completion:*' completer _expand _complete _match _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
 zstyle ':completion:*' menu select
 
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
