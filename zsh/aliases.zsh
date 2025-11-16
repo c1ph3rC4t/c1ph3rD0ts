@@ -48,6 +48,8 @@ fi
 
 # Eza
 if command -v eza &>/dev/null; then
+    alias lso='\ls --color'
+
     alias ls='eza'
     alias ls1='eza'
     alias ls2='eza -1TL 2'
@@ -62,12 +64,14 @@ if command -v eza &>/dev/null; then
     alias l4='eza -1ATL 4'
     alias l5='eza -1ATL 5'
 
-    alias ll='eza -lAh'
-    alias ll1='eza -lAh'
-    alias ll2='eza -lAhTL 2'
-    alias ll3='eza -lAhTL 3'
-    alias ll4='eza -lAhTL 4'
-    alias ll5='eza -lAhTL 5'
+    alias ll='eza -lAh --git'
+    alias ll1='eza -lAh --git'
+    alias ll2='eza -lAhTL 2 --git'
+    alias ll3='eza -lAhTL 3 --git'
+    alias ll4='eza -lAhTL 4 --git'
+    alias ll5='eza -lAhTL 5 --git'
+else
+    alias ls='\ls --color'
 fi
 
 # Neovim
