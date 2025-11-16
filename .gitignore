@@ -7,3 +7,4 @@
 
 # Keep system
 !/zsh/
+!/oh-my-posh.json

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "primary": "#8caaee",
+    "secondary": "#9cbbff",
+    "lambda": "#c49bc4"
+  },
+
+  "transient_prompt": {
+    "template": "<p:primary,transparent></><,p:primary> {{ .Folder }}</><p:primary,transparent></> ",
+    "foreground": "transparent",
+    "background": "p:primary"
+  },
+
+	"filler": {
+    "character": "-"
+  },
+
+  "blocks": [
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "segments": [
+        {
+          "leading_diamond": "\n╭─",
+
+          "foreground": "transparent",
+          "background": "p:primary",
+          
+          "style": "diamond",
+          "type": "session",
+
+          "template": "{{ if .SSHSession }}{{ end }}{{ if not .SSHSession }}{{ end }} {{ .UserName }}"
+        },
+        {
+          "foreground": "p:primary",
+          "background": "p:secondary",
+          
+          "style": "plain",
+          "type": "text",
+
+          "template": "█🭬"
+        },
+        {
+          "foreground": "transparent",
+          "background": "p:secondary",
+
+          
+          "style": "diamond",
+          "type": "session",
+
+          "template": " {{ .HostName }}"
+        },
+        {
+          "foreground": "p:secondary",
+          "background": "p:primary",
+          
+          "style": "plain",
+          "type": "text",
+
+          "template": "█🭬"
+        },
+        {
+          "trailing_diamond": "",
+
+          "foreground": "transparent",
+          "background": "p:primary",
+
+          
+          "style": "diamond",
+          "type": "path",
+
+          "template": " {{ .Path }}"
+        }
+      ]
+    },
+    {
+      "alignment": "right",
+      "type": "prompt",
+      "segments": [
+        {
+          "leading_diamond": "",
+          
+          "foreground": "transparent",
+          "background": "p:secondary",
+
+          "style": "diamond",
+          "type": "shell",
+
+          "template": "󰣇 {{ .Name }}"
+        },
+        {
+          "foreground": "p:primary",
+          "background": "p:secondary",
+          
+          "style": "plain",
+          "type": "text",
+
+          "template": "🭮█"
+        },
+        {
+          "trailing_diamond": "",
+
+          "foreground": "transparent",
+          "background": "p:primary",
+
+          "style": "diamond",
+          "type": "time",
+
+          "template": "{{ .CurrentDate | date \"15:04\" }}"
+        }
+      ],
+			"filler": "<p:primary,transparent>─</>"
+    },
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "p:primary",
+
+          "style": "plain",
+          "type": "text",
+
+          "template": "╰─"
+        },
+        {
+          "foreground": "p:lambda",
+
+          "style": "plain",
+          "type": "text",
+
+          "template": "λ"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
