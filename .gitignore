@@ -7,6 +7,7 @@
 
 # Keep system & WM configs
 !/zsh/
+!/kitty/
 !/starship.toml
 !/oh-my-posh.json
 
