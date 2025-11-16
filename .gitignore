@@ -4,6 +4,7 @@
 # Core
 !/.gitignore
 !/README.md
+!/LICENCE
 
 # Shell
 !/zsh/
