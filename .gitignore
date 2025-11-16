@@ -1,0 +1,6 @@
+# Ignore all items in GIT repo root by default
+/*
+
+# Keep core
+!/.gitignore
+!/README.md
