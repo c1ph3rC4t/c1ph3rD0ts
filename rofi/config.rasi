@@ -1,0 +1,175 @@
+// If you are reading this, then may the goddess be on your side.
+// I do not understand why or how it works, it just does.
+
+configuration {
+    display-drun: "Applications";
+    display-window: "Windows";
+    display-ssh: "SSH";
+    drun-display-format: "{name}";
+    font: "FiraCode Nerd Font 10";
+    modi: "window,run,drun,ssh";
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+* {
+    foreground: #DCE3ED;
+    background: #32354a;
+    background-tra: #32354aCC;
+    background-alt: #40445c;
+
+    black: #3B4252;
+    black-light: #424A5C;
+
+    primary-1: #6b7acc;
+    primary-2: #5d6ab7;
+
+    red: #D67A82;
+    red-light: #E48890;
+    green: #B0D59A;
+    green-light: #C5E0AF;
+    yellow: #F0D395;
+    yellow-light: #FAE1AA;
+    blue: #8FB9DC;
+    blue-light: #A8C4E0;
+    
+    cyan: #98D5E2;
+    cyan-light: #ADE4F3;
+    white: #E9EDF5;
+    white-light: #F5F7FB;
+
+    accent: @primary-1;
+    urgent: @red;
+
+    background-color: transparent;
+    text-color: @foreground;
+    spacing: 0;
+}
+window {
+    transparency: "real";
+    background-color: @background-tra;
+    text-color: @foreground;
+    border: 2px;
+    border-color: #8caaee;
+    border-radius: 8px;
+    width: 40%;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
+}
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+    background-color: @background-alt;
+    handle-color: @primary-1;
+    border-radius: 6px;
+}
+handle {
+    border-radius: 6px;
+    background-color: @primary-1;
+}
+prompt {
+    enabled: true;
+    padding: 0px 8px 0px 8px;
+    background-color: @background-alt;
+    text-color: @accent;
+    font: "FiraCode Nerd Font Mono 10";
+}
+entry {
+    background-color: @background-alt;
+    text-color: @foreground;
+    placeholder-color: @foreground;
+    expand: true;
+    horizontal-align: 0;
+    placeholder: "Search...";
+    padding: 0px 0px 0px 8px;
+    blink: true;
+}
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @background-alt;
+    text-color: @foreground;
+    expand: false;
+    border: 0px;
+    border-radius: 6px;
+    border-color: @accent;
+    margin: 0px;
+    padding: 8px;
+}
+listview {
+    background-color: transparent;
+    padding: 5px;
+    columns: 1;
+    lines: 8;
+    spacing: 5px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+mainbox {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0px;
+    border-color: @accent;
+    children: [ inputbar, listview ];
+    spacing: 10px;
+    padding: 10px;
+}
+element {
+    background-color: @background;
+    text-color: @foreground;
+    orientation: horizontal;
+    border-radius: 6px;
+    padding: 8px;
+}
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24px;
+    border: 0px;
+}
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0px 5px 0px 5px;
+}
+element normal.normal {
+    background-color: #00000000;
+    text-color: @foreground;
+}
+element normal.urgent {
+    background-color: @urgent;
+    text-color: @foreground;
+}
+element normal.active {
+    background-color: @primary-2;
+    text-color: @background;
+}
+element selected.normal {
+    background-color: @primary-1;
+    text-color: @background;
+}
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @foreground;
+}
+element selected.active {
+    background-color: @primary-2;
+    text-color: @background;
+}
+element alternate.normal {
+    background-color: #00000000;
+    text-color: @foreground;
+}
+element alternate.urgent {
+    background-color: @urgent;
+    text-color: @foreground;
+}
+element alternate.active {
+    background-color: @accent;
+    text-color: @foreground;
+}

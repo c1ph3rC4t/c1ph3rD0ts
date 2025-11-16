@@ -8,6 +8,7 @@
 # Keep system & WM configs
 !/zsh/
 !/kitty/
+!/rofi/
 !/starship.toml
 !/oh-my-posh.json
 
