@@ -32,6 +32,25 @@ export DISTRO_LIKE=$(
     fi
 )
 
+case "$DISTRO" in
+    arch)
+        DISTROICON=""
+        ;;
+    nixos)
+        DISTROICON=""
+        ;;
+    *)
+        case "$DISTRO_LIKE" in
+            arch)
+                DISTROICON=""
+                ;;
+            *)
+                DISTROICON=""
+                ;;
+        esac
+        ;;
+esac
+
 # Set AUR helper variable
 if [ -z "$AUR_HELPER" ]; then
     if command -v paru >/dev/null 2>&1; then
