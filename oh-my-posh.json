@@ -87,7 +87,7 @@
           "style": "diamond",
           "type": "shell",
 
-          "template": "󰣇 {{ .Name }}"
+          "template": "{{ .Name }}"
         },
         {
           "foreground": "p:primary",
