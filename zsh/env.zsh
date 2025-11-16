@@ -1,7 +1,7 @@
 # Set up zsh history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$HISTSIZE
 
 # Set up $PATH
 source $HOME/.config/zsh/paths.zsh
