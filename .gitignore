@@ -23,3 +23,8 @@
 # Keep app configs
 !/nvim/
 !/yazi/
+
+!/btop/
+/btop/*
+
+!/btop/btop.conf
