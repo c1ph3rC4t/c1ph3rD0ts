@@ -1,9 +1,9 @@
-eval "$(zoxide init zsh)"
-
+# Set up env
 source $HOME/.config/zsh/env.zsh
 source $HOME/.config/zsh/functions.zsh
 
-source $HOME/.config/zsh/prompt.zsh
-source $HOME/.config/zsh/completion.zsh
+# Load plugins
+source $HOME/.config/zsh/plugins.zsh
 
+# Set up aliases
 source $HOME/.config/zsh/aliases.zsh
