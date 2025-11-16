@@ -1,0 +1,46 @@
+add_newline = false
+palette = "custom"
+
+format = """
+[╭─](fg:primary)$username[🭬](bg:secondary fg:primary)$hostname[🭬](bg:primary fg:secondary)$directory[](fg:primary)$fill[](fg:secondary)$shell[🭮](bg:secondary fg:primary)$time[](fg:primary)
+[╰─](fg:primary)$character
+"""
+
+[palettes.custom]
+primary = "#8caaee"
+secondary = "#9cbbff"
+lambda = "#c49bc4"
+
+[username]
+format = "[ $user ](bg:primary fg:black)"
+show_always = true
+style_user = "bg:primary fg:black"
+
+[hostname]
+format = "[ $hostname ](bg:secondary fg:black)"
+ssh_only = false
+
+[directory]
+format = "[ $path](bg:primary fg:black)[](fg:primary)"
+truncation_length = 3
+truncate_to_repo = true
+
+[fill]
+symbol = "─"
+style = "fg:primary"
+
+[shell]
+format = "[$indicator](bg:secondary fg:black)"
+bash_indicator = "bash"
+zsh_indicator = "zsh"
+fish_indicator = "fish"
+disabled = false
+
+[time]
+format = "[$time](bg:primary fg:black)[](fg:primary)"
+time_format = "%H:%M"
+disabled = false
+
+[character]
+success_symbol = "[λ](fg:lambda)"
+error_symbol = "[λ](fg:lambda)"

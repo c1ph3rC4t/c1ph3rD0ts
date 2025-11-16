@@ -7,4 +7,5 @@
 
 # Keep system
 !/zsh/
+!/starship.toml
 !/oh-my-posh.json
