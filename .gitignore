@@ -11,6 +11,24 @@
 !/starship.toml
 !/oh-my-posh.json
 
+!/gtk-3.0/
+/gtk-3.0/*
+
+!/gtk-3.0/colors.css
+!/gtk-3.0/gtk.css
+!/gtk-3.0/settings.ini
+
+!/gtk-4.0/
+/gtk-4.0/*
+
+!/gtk-4.0/gtk.css
+!/gtk-4.0/settings.ini
+
+!/qt5ct/
+!/qt6ct/
+
+!/xdg-desktop-portal
+
 !/hypr/
 /hypr/*
 
