@@ -15,8 +15,10 @@
 
 !/hypr/hyprland.conf
 !/hypr/binds.conf
-!/hypr/hyprpaper.conf
 !/hypr/scripts
+
+!/hypr/hyprpaper.conf
+!/hypr/wal.png
 
 # Keep app configs
 !/nvim/
