@@ -4,3 +4,6 @@
 # Keep core
 !/.gitignore
 !/README.md
+
+# Keep system
+!/zsh/
