@@ -1,17 +1,22 @@
 # Ignore all items in GIT repo root by default
 /*
 
-# Keep core
+# Core
 !/.gitignore
 !/README.md
 
-# Keep system & WM configs
+# Shell
 !/zsh/
-!/kitty/
-!/rofi/
 !/starship.toml
 !/oh-my-posh.json
 
+# Terminal
+!/kitty/
+
+# Application launcher
+!/rofi/
+
+# GTK 3.0
 !/gtk-3.0/
 /gtk-3.0/*
 
@@ -19,17 +24,21 @@
 !/gtk-3.0/gtk.css
 !/gtk-3.0/settings.ini
 
+# GTK 4.0
 !/gtk-4.0/
 /gtk-4.0/*
 
 !/gtk-4.0/gtk.css
 !/gtk-4.0/settings.ini
 
+# QT
 !/qt5ct/
 !/qt6ct/
 
+# XDG desktop portal
 !/xdg-desktop-portal
 
+# Hyprland
 !/hypr/
 /hypr/*
 
@@ -37,10 +46,11 @@
 !/hypr/binds.conf
 !/hypr/scripts
 
+# Hyprpaper
 !/hypr/hyprpaper.conf
 !/hypr/wal.png
 
-# Keep app configs
+# CLI/TUI applications
 !/nvim/
 !/yazi/
 
