@@ -10,6 +10,3 @@ fi
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
-
-source $HOME/.config/zsh/prompt.zsh
-source $HOME/.config/zsh/completion.zsh

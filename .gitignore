@@ -7,7 +7,7 @@
 !/LICENCE
 
 # Shell
-!/zsh/
+!/zsh.d/
 !/starship.toml
 !/oh-my-posh.json
 

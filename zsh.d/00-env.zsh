@@ -3,9 +3,16 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
-# Set up $PATH
-source $HOME/.config/zsh/paths.zsh
+PROMPT="%F{4}%n%F{12}@%F{4}%m%F{12}:%F{4}%~%F{5}λ%f "
 
+# Set up $PATH
+# Scripts
+export PATH=$HOME/.config/scripts:$PATH
+
+# Java
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Set up $TERM
 export TERM=xterm-256color
 
 # Set Node Version Manager path
