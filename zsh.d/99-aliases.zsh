@@ -1,5 +1,8 @@
 alias c='clear'
 
+alias quit='exit'
+alias q='exit'
+
 alias ip='ip -c'
 
 alias zshr='source ~/.zshrc'
