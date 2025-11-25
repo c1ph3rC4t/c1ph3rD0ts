@@ -1,14 +1,3 @@
-alias c='clear'
-
-alias quit='exit'
-alias q='exit'
-
-alias ip='ip -c'
-
-alias zshr='source ~/.zshrc'
-
-alias ssh='TERM=xterm-256color ssh'
-
 # File and directory managment
 alias mkdir='mkdir -p'
 alias rm='rm -r'
@@ -36,7 +25,7 @@ if command -v zoxide &>/dev/null; then
     alias cd='z'
 fi
 
-# Yay
+# AUR helper
 if [ -n "$AUR_HELPER" ]; then
     alias yoink="$AUR_HELPER -S"
     alias yank="$AUR_HELPER -Rns"
@@ -91,3 +80,22 @@ fi
 if command -v yazi &>/dev/null; then
     alias y='yazi'
 fi
+
+# Fd
+if command -v fd &>/dev/null; then
+    alias f='fd'
+    alias find='fd'
+fi
+
+# Misc.
+alias c='clear'
+
+alias q='exit'
+alias quit='exit'
+
+alias ip='ip -c'
+
+alias reload='source ~/.zshrc'
+alias zshr='source ~/.zshrc'
+
+alias ssh='TERM=xterm-256color ssh'

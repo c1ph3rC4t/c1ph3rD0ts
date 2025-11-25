@@ -32,3 +32,8 @@ instead.
 ```sh
 source ~/.zshrc
 ```
+
+3. Include gitconfig:
+```sh
+echo -e "[include]\n\tpath = ~/.config/gitconfig\n$(cat "$HOME/.gitconfig")" > $HOME/.gitconfig
+```
