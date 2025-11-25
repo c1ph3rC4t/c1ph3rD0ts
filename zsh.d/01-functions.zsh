@@ -78,3 +78,12 @@ npm() {
     command npm "$@"
   fi
 }
+
+# Hyprland stuff
+nextkb() {
+  hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards.[] | select(.main) | .name') next
+}
+
+prevkb() {
+  hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards.[] | select(.main) | .name') prev
+}
