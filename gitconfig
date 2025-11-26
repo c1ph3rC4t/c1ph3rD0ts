@@ -1,0 +1,6 @@
+[init]
+	defaultBranch = main
+[alias]
+	gud = push --force
+[commit]
+	gpgSign = true

@@ -51,6 +51,9 @@
 !/hypr/hyprpaper.conf
 !/hypr/wal.png
 
+# GIT
+!/gitconfig
+
 # CLI/TUI applications
 !/nvim/
 !/yazi/
