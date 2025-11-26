@@ -1,0 +1,55 @@
+# ~/.config/mako/config
+
+# Font
+font=Fira Code Nerd Font Mono 12
+
+# Colors matching your waybar
+background-color=#1c192d
+text-color=#8caaee
+border-color=#8caaee
+border-size=2
+border-radius=20
+
+# Spacing
+padding=10
+margin=25
+
+# Position
+anchor=top-right
+width=350
+height=120
+
+# Behavior
+default-timeout=5000
+ignore-timeout=0
+
+# Grouping
+group-by=app-name
+max-visible=3
+
+# Icons
+icons=1
+max-icon-size=48
+icon-location=left
+
+[urgency=low]
+background-color=#1c192dcc
+text-color=#8caaee66
+border-color=#8caaee66
+
+[urgency=normal]
+background-color=#1c192d
+text-color=#8caaee
+border-color=#8caaee
+
+[urgency=critical]
+background-color=#1c192d
+text-color=#D67A82
+border-color=#D67A82
+default-timeout=0
+
+[urgency=high]
+background-color=#1c192d
+text-color=#F0D395
+border-color=#F0D395
+default-timeout=8000

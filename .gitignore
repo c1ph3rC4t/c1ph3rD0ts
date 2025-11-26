@@ -51,6 +51,9 @@
 !/hypr/hyprpaper.conf
 !/hypr/wal.png
 
+# Mako
+!/mako/
+
 # GIT
 !/gitconfig
 
