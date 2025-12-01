@@ -41,6 +41,10 @@
 
 # Hyprland
 !/hypr/
+/hypr/*
+
+!/hypr/hyprland.conf
+!/hypr/hyprland.d
 /hypr/hyprland.d/01-monitors.conf
 
 # Hyprpaper
