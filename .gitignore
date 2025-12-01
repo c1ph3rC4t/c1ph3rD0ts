@@ -41,11 +41,7 @@
 
 # Hyprland
 !/hypr/
-/hypr/*
-
-!/hypr/hyprland.conf
-!/hypr/binds.conf
-!/hypr/scripts
+/hypr/hyprland.d/01-monitors.conf
 
 # Hyprpaper
 !/hypr/hyprpaper.conf
