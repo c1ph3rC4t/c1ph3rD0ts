@@ -47,8 +47,15 @@
 /hypr/*
 
 !/hypr/hyprland.conf
-!/hypr/hyprland.d
-/hypr/hyprland.d/02-monitors.conf
+
+!/hypr/hyprland.d/00-vars.conf
+!/hypr/hyprland.d/01-env.conf
+!/hypr/hyprland.d/03-workspaces.conf
+!/hypr/hyprland.d/04-autostart.conf
+!/hypr/hyprland.d/05-input.conf
+!/hypr/hyprland.d/97-looks.conf
+!/hypr/hyprland.d/98-windowrules.conf
+!/hypr/hyprland.d/99-binds.conf
 
 # Hyprpaper
 !/hypr/hyprpaper.conf
