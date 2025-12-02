@@ -74,4 +74,6 @@
 !/btop/
 /btop/*
 
+!/qalculate/
+
 !/btop/btop.conf
