@@ -30,14 +30,14 @@ symbol = "─"
 style = "fg:primary"
 
 [shell]
-format = "[$indicator](bg:secondary fg:black)"
+format = "[ $indicator](bg:secondary fg:black)"
 bash_indicator = "bash"
 zsh_indicator = "zsh"
 fish_indicator = "fish"
 disabled = false
 
 [time]
-format = "[$time](bg:primary fg:black)[](fg:primary)"
+format = "[  $time](bg:primary fg:black)[](fg:primary)"
 time_format = "%H:%M"
 disabled = false
 
