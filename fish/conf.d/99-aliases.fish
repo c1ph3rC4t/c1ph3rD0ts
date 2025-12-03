@@ -10,16 +10,6 @@ alias die 'poweroff -f'
 
 alias restart 'reboot'
 
-# Navigation
-alias .. 'cd ..'
-alias ... 'cd ../..'
-
-alias .1 'cd ..'
-alias .2 'cd ../..'
-alias .3 'cd ../../..'
-alias .4 'cd ../../../..'
-alias .5 'cd ../../../../..'
-
 # Zoxide
 if command -q zoxide
     alias cd 'z'
