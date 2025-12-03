@@ -18,7 +18,7 @@ export TERM=xterm-256color
 # Set Node Version Manager path
 export NVM_DIR="$HOME/.nvm"
 
-# Set DISTRO and DISTRO_LIKE variables
+# Set DISTRO and DISTROLIKE variables
 export DISTRO=$(
     if [ -f /etc/os-release ]; then
         . /etc/os-release 2>/dev/null && echo "${ID:-unknown}"
@@ -29,7 +29,7 @@ export DISTRO=$(
     fi
 )
 
-export DISTRO_LIKE=$(
+export DISTROLIKE=$(
     if [ -f /etc/os-release ]; then
         . /etc/os-release 2>/dev/null && echo "${ID_LIKE:-unknown}"
     elif [ -f /usr/lib/os-release ]; then
@@ -47,7 +47,7 @@ case "$DISTRO" in
         DISTROICON=""
         ;;
     *)
-        case "$DISTRO_LIKE" in
+        case "$DISTROLIKE" in
             arch)
                 DISTROICON=""
                 ;;
