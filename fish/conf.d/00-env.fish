@@ -1,3 +1,6 @@
+# Suppress fish welcome message
+set fish_greeting
+
 # Set up $PATH
 # Scripts
 set -gx PATH $HOME/.config/scripts $PATH
