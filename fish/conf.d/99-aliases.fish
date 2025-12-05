@@ -16,7 +16,7 @@ if command -q zoxide
 end
 
 # AUR helper
-if set -q $AUR_HELPER
+if test "$AUR_HELPER" != ''
     alias yoink "$AUR_HELPER -S"
     alias yank "$AUR_HELPER -Rns"
     alias yeet "$AUR_HELPER -Rns"
@@ -24,7 +24,7 @@ if set -q $AUR_HELPER
 end
 
 # NixOS
-if test "$DISTRO" = "nixos"
+if test "$DISTRO" = 'nixos'
     alias nixos-gens 'sudo nix-env -p /nix/var/nix/profiles/system --list-generations'
     alias nixos-gc 'sudo nix-collect-garbage -d'
     alias nixos-rb 'sudo nixos-rebuild switch'
@@ -84,8 +84,5 @@ alias q 'exit'
 alias quit 'exit'
 
 alias ip 'ip -c'
-
-alias reload 'source ~/.zshrc'
-alias zshr 'source ~/.zshrc'
 
 alias ssh 'TERM=xterm-256color ssh'

@@ -39,25 +39,23 @@ set -gx DISTROLIKE (string trim --chars='"' $DISTROLIKE)
 
 switch $DISTRO
     case arch
-        set -gx DISTROICON ""
+        set -gx DISTROICON ''
     case nixos
-        set -gx DISTROICON ""
+        set -gx DISTROICON ''
     case '*'
         switch $DISTROLIKE
             case arch
-                set -gx DISTROICON ""
+                set -gx DISTROICON ''
             case '*'
-                set -gx DISTROICON ""
+                set -gx DISTROICON ''
         end
 end
 
 # Set AUR helper variable
-if not set -q AUR_HELPER
-    if command -q paru
-        set -gx AUR_HELPER paru
-    else if command -q yay
-        set -gx AUR_HELPER yay
-    else
-        set -gx AUR_HELPER ''
-    end
+if command -q paru
+    set -gx AUR_HELPER 'paru'
+else if command -q yay
+    set -gx AUR_HELPER 'yay'
+else
+    set -gx AUR_HELPER ''
 end
