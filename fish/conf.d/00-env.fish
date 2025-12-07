@@ -59,3 +59,14 @@ else if command -q yay
 else
     set -gx AUR_HELPER ''
 end
+
+# Set sudo prompt
+function sudoprompt
+    set_color 8caaee
+    echo -ne "[sudo]  $USER "
+    set_color c49bc4
+    echo -ne "❯ "
+    set_color normal
+end
+
+set -gx SUDO_PROMPT $(sudoprompt)

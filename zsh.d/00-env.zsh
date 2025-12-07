@@ -68,3 +68,6 @@ if [ -z "$AUR_HELPER" ]; then
         AUR_HELPER=""
     fi
 fi
+
+# Set sudo prompt
+export SUDO_PROMPT=$(echo -ne "\e[34m[sudo]  $USER \e[35m❯ \e[0m")
