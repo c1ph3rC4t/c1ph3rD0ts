@@ -33,29 +33,12 @@ end
 # Eza
 if command -q eza
     alias lso '\ls --color'
-
     alias ls 'eza'
-    alias ls1 'eza'
-    alias ls2 'eza -1TL 2'
-    alias ls3 'eza -1TL 3'
-    alias ls4 'eza -1TL 4'
-    alias ls5 'eza -1TL 5'
-
     alias l 'eza -A'
-    alias l1 'eza -A'
-    alias l2 'eza -1ATL 2'
-    alias l3 'eza -1ATL 3'
-    alias l4 'eza -1ATL 4'
-    alias l5 'eza -1ATL 5'
-
-    alias ll 'eza -lAh --git'
-    alias ll1 'eza -lAh --git'
-    alias ll2 'eza -lAhTL 2 --git'
-    alias ll3 'eza -lAhTL 3 --git'
-    alias ll4 'eza -lAhTL 4 --git'
-    alias ll5 'eza -lAhTL 5 --git'
+    alias ll 'eza -lAh@ --git'
 else
     alias ls '\ls --color'
+    alias lso '\ls --color'
 end
 
 # Neovim
@@ -77,6 +60,13 @@ if command -q fd
     alias find 'fd'
 end
 
+# Arduino
+if command -q arduino-cli
+    alias ardc 'arduino-cli compile --fqbn arduino:avr:uno'
+    alias ardu 'arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno'
+    alias ardcu 'arduino-cli compile --fqbn arduino:avr:uno && arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno'
+end
+
 # Misc.
 alias c 'clear'
 
@@ -84,5 +74,3 @@ alias q 'exit'
 alias quit 'exit'
 
 alias ip 'ip -c'
-
-alias ssh 'TERM=xterm-256color ssh'
