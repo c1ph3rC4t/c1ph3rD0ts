@@ -62,6 +62,11 @@ if command -q arduino-cli
     alias ardcu 'arduino-cli compile --fqbn arduino:avr:uno && arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno'
 end
 
+# Gunzip
+if command -q gunzip
+    alias gz 'gunzip'
+end
+
 # Misc.
 alias c 'clear'
 
