@@ -49,11 +49,6 @@ if command -q nvim
     alias vi 'nvim'
 end
 
-# Yazi
-if command -q yazi
-    alias y 'yazi'
-end
-
 # Fd
 if command -q fd
     alias f 'fd'
