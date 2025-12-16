@@ -9,3 +9,8 @@ if command -q yazi
         rm -f -- "$tmp"
     end
 end
+
+# Disk managment
+function burn
+    sudo dd if=$argv[1] of=$argv[2] bs=4M status=progress conv=fsync
+end
