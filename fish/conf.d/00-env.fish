@@ -17,8 +17,14 @@ set -gx NVM_DIR "$HOME/.nvm"
 # Set DISTRO and DISTROLIKE variables safely
 set -l _os_release (cat /etc/os-release 2>/dev/null; or cat /usr/lib/os-release 2>/dev/null)
 
-# Makes Flatpak apps arctually show up in application launchers
-set -gx XDG_DATA_DIRS /var/lib/flatpak/exports/share $HOME/.local/share/flatpak/exports/share $XDG_DATA_DIRS
+# Makes Flatpak apps actually show up in application launchers
+if not string match -q "*/var/lib/flatpak/exports/share*" $XDG_DATA_DIRS
+    set -gx XDG_DATA_DIRS /var/lib/flatpak/exports/share $XDG_DATA_DIRS
+end
+
+if not string match -q "*$HOME/.local/share/flatpak/exports/share*" $XDG_DATA_DIRS
+    set -gx XDG_DATA_DIRS $HOME/.local/share/flatpak/exports/share $XDG_DATA_DIRS
+end
 
 for line in $_os_release
     if string match -qr '^ID=' $line
