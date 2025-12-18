@@ -25,14 +25,15 @@ systemctl enable ly@tty2.service
 mkdir -p ~/.claude
 echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
 
-# Themeing
-chmod +x ./slot.sh
-./slot.sh
-
+# Moving dots
 cp -r ~/.config ~/.config.bak
 cd ..
 cp -r ./* ~/.config/
 cp -r ./.[!.]* ~/.config/
+
+# Themeing
+chmod +x ./slot.sh
+./slot.sh
 
 # Advertizing lmao
 echo -e "If you are interested in gaming on linux please run:\ncurl -fsSL \"https://c1ph3rc4t.github.io/gaming-on-linux/main.sh\" | sh"
