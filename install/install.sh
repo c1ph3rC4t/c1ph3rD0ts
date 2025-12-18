@@ -10,11 +10,11 @@ git clone "$REPO"
 cd c1ph3rD0ts/install
 
 # Deps
-sudo pacman -Syu --needed $(cat ./pac-deps)
+sudo pacman -Syu
 
 command -v yay &> /dev/null || (git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay)
 
-yay -Syu --needed $(cat ./aur-deps)
+yay -Syu --needed $(cat ./deps)
 
 # Themeing
 chmod +x ./slot.sh
