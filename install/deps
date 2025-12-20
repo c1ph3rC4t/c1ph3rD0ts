@@ -4,7 +4,13 @@ qt5-wayland
 qt6-wayland
 gtk3
 gtk4
+catppuccin-gtk-theme-frappe
+qt5-base
+qt5-svg
+qt5-declarative
+qt5-quickcontrols
 kvantum
+kvantum-qt5
 hyprland
 hyprpicker
 hyprshot
@@ -17,11 +23,13 @@ rofi
 waybar
 ly
 xorg-xhost
+fkill
 kitty
 fish
 starship
 zoxide
 eza
+fd
 rust
 nvim
 code

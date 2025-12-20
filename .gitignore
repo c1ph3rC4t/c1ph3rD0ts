@@ -21,27 +21,21 @@
 # Application launcher
 !/rofi/
 
+# GTK 2.0
+!/gtk-2.0/
+
 # GTK 3.0
-# !/gtk-3.0/
-# /gtk-3.0/*
+!/gtk-3.0/
 
-# !/gtk-3.0/assets
-# !/gtk-3.0/colors.css
-# !/gtk-3.0/gtk.css
-# !/gtk-3.0/settings.ini
+# GTK 4.0
+!/gtk-4.0/
 
-# # GTK 4.0
-# !/gtk-4.0/
-# /gtk-4.0/*
+# Kvantum
+!/Kvantum
 
-# !/gtk-4.0/assets
-# !/gtk-4.0/colors.css
-# !/gtk-4.0/gtk.css
-# !/gtk-4.0/settings.ini
-
-# # QT
-# !/qt5ct/
-# !/qt6ct/
+# QT
+!/qt5ct/
+!/qt6ct/
 
 # XDG desktop portal
 !/xdg-desktop-portal
