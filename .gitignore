@@ -59,6 +59,9 @@
 !/hypr/hyprpaper.conf
 !/hypr/wal.png
 
+# Waybar
+!/waybar
+
 # Mako
 !/mako/
 

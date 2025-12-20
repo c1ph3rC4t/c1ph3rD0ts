@@ -1,0 +1,153 @@
+* {
+	border: none;
+	border-radius: 10px;
+	font-family: "Fira Code Nerd Font Mono", monospace;
+	font-size: 12px;
+	color: #8caaee;
+	min-height: 0;
+	padding: 0px;
+	margin: 0px;
+}
+
+window#waybar {
+	background: rgba(140, 170, 238, 0);
+	color: #8caaee;
+	margin: 10px;
+}
+
+.modules-left,
+.modules-right,
+.modules-center
+{
+	padding: 5px 2.5px 5px 2.5px;
+	margin-top: 10px;
+	margin-left: 25px;
+	margin-bottom: 0px;
+	margin-right: 25px;
+	background: rgba(28, 25, 45, 1);
+	color: #8caaee;
+	border-radius: 20px;
+}
+
+tooltip {
+	padding: 0px;
+	margin: 0px;
+	background: rgba(28, 25, 45, 0.75);
+	color: #8caaee;
+	border: 2px solid #8caaee;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+tooltip label {
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	margin-right: 4px;
+}
+
+#workspaces button {
+	padding: 3px 5px 3px 5px;
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+	/* background: rgba(28, 25, 45, 0.25); */
+	color: rgba(140, 170, 238, 0.4);
+	/* border: 2px solid rgba(140, 170, 238, 0.4); */
+	box-shadow: none;
+	text-shadow: none;
+}
+
+#workspaces button:hover {
+	padding: 3px 5px 3px 5px;
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+	background: rgba(140, 170, 238, 0.2);
+	color: #8caaee;
+	border-radius: 15px;
+}
+
+#workspaces button.active {
+	padding: 3px 5px 3px 5px;
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+	background: rgba(140, 170, 238, 0.2);
+	color: #8caaee;
+	border-radius: 15px;
+}
+
+#custom-power,
+#custom-info,
+#custom-librefox,
+#custom-vscode,
+#custom-nvim,
+#custom-discord,
+#custom-tor,
+#clock,
+#battery,
+#custom-kbLayout,
+#custom-readFiles,
+#cpu,
+#memory,
+#pulseaudio,
+#network {
+	padding: 3px 8px 3px 8px;
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+	margin-right: 5px;
+	/* background: rgba(28, 25, 45, 0.5); */
+	color: #8caaee;
+	/* border: 2px solid #8caaee; */
+}
+
+#custom-power:hover,
+#custom-info:hover,
+#custom-librefox:hover,
+#custom-vscode:hover,
+#custom-nvim:hover,
+#custom-discord:hover,
+#custom-tor:hover,
+#clock:hover,
+#battery:hover,
+#custom-kbLayout:hover,
+#custom-readFiles:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#network:hover{
+	background: rgba(140, 170, 238, 0.2);
+	color: #8caaee;
+	border-radius: 15px;
+}
+
+#custom-separator {
+	padding: 0px 0px 0px 0px;
+	margin-top: 0px;
+	margin-left: -5px;
+	margin-bottom: 0px;
+	margin-right: -5px;
+}
+
+#battery.critical,
+#battery.urgent,
+#cpu.critical,
+#memory.critical {
+	background-color: rgba(214, 122, 130, 0.2);
+	color: #D67A82;
+	border-radius: 15px;
+}
+
+#battery.warning,
+#cpu.warning,
+#memory.warning {
+	background-color: rgba(240, 211, 149, 0.2);
+	color: #F0D395;
+	border-radius: 15px;
+}

@@ -1,0 +1,132 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"modules-left": [
+		"custom/power",
+		"custom/separator",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"custom/kbLayout",
+		"custom/separator",
+		"network",
+		"custom/separator",
+		"cpu",
+		"custom/separator",
+		"memory",
+		"custom/separator",
+		"battery",
+		"custom/separator",
+		"pulseaudio"
+	],
+
+	"custom/power": {
+		"format": "",
+		"on-click": "shutdown -h now",
+		"on-click-right": "reboot",
+		"tooltip": false
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"1": "零",
+			"2": "一",
+			"3": "二", 
+			"4": "三",
+			"5": "四",
+			"6": "五",
+			"7": "六",
+			"8": "七",
+			"9": "八",
+			"10": "九",
+			"11": "十",
+			"steam": "",
+			"default": "●"
+		},
+		// "format-icons": {
+		// 	"1": "А",
+		// 	"2": "Б",
+		// 	"3": "В", 
+		// 	"4": "Г",
+		// 	"5": "Д",
+		// 	"6": "Е",
+		// 	"7": "Ё",
+		// 	"8": "Ж",
+		// 	"9": "З",
+		// 	"10": "И",
+		// 	"11": "Й",
+		// 	"steam": "",
+		// 	"default": "●"
+		// },
+		"on-click": "activate"
+	},
+	"clock": {
+		"interval": 1,
+		"format": "󰃰 {:%Y-%m-%d %H:%M:%S}",
+		"tooltip-format": "<tt>{calendar}</tt>"
+	},
+	"custom/kbLayout": {
+		"exec": "~/.config/waybar/bin/get-hyprland-kb-layout",
+		"interval": 1,
+		"format": "{}",
+		"tooltip": false
+	},
+	"cpu": {
+		"interval": 2,
+		"format": " {usage}%",
+		"max-length": 10,
+		"on-click": "hyprctl dispatch exec '[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty btop'",
+		"states": {
+			"warning": 60,
+			"critical": 80
+		}
+	},
+	"memory": {
+		"interval": 2,
+		"format": " {percentage}%",
+		"max-length": 10,
+		"on-click": "hyprctl dispatch exec '[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty btop'",
+		"tooltip-format": " {used} GiB / {total} GiB",
+		"states": {
+			"warning": 60,
+			"critical": 80
+		}
+	},
+	"network": {
+		"interval": 2,
+		"format-wifi": "󰖩 {bandwidthDownBits}  {bandwidthUpBits} ",
+		"format-ethernet": "󰈁 {bandwidthDownBits}",
+		"format-disconnected": "󰖪 Disconnected",
+		"tooltip-format": " {essid} |  {bandwidthDownBits} |  {bandwidthUpBits}",
+		"on-click": "hyprctl dispatch exec '[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty nmtui'"
+	},
+	"battery": {
+		"interval": 10,
+		"format": "{icon} {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"default": ["", "", ""]
+		},
+		"on-click": "hyprctl dispatch exec '[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] pavucontrol'"
+	},
+	"custom/separator": {
+		"format": "|"
+	},
+	"custom/space": {
+		"format": " "
+	}
+}
