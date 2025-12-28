@@ -36,7 +36,8 @@ end
 # History
 function exclexcl
     echo "$(history -n "$(math (string length -- $argv) - 1)" -R | head -n 1)"
-end 
+end
+
 abbr -a exclexcl -r '^\!\!+$' -f exclexcl
 
 function exclnum
