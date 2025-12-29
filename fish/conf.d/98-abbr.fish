@@ -43,3 +43,9 @@ function exclnum
     echo "$(history -n "$(string sub -s 2 -- $argv)" -R | head -n 1)"
 end
 abbr -a exclnum -r '^\!([1-9][0-9]*)$' -f exclnum
+
+# Unalias
+function exclcmd
+    echo "command $(string sub -s 2 -- $argv)"
+end
+abbr -a exclcmd -r '^!\w+$' -f exclcmd

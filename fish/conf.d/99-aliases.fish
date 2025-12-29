@@ -32,13 +32,13 @@ end
 
 # Eza
 if command -q eza
-    alias lso '\ls --color'
+    alias lso 'command ls --color'
     alias ls 'eza'
     alias l 'eza -A'
     alias ll 'eza -lAh@ --git'
 else
-    alias ls '\ls --color'
-    alias lso '\ls --color'
+    alias ls 'command ls --color'
+    alias lso 'ls'
 end
 
 # Neovim
