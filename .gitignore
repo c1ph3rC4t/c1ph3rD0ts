@@ -68,6 +68,17 @@
 # GIT
 !/gitconfig
 
+# Code OSS
+!/Code - OSS
+/Code - OSS/*
+
+!/Code - OSS/User
+/Code - OSS/User/*
+
+!/Code - OSS/User/settings.json
+!/Code - OSS/User/keybindings.json
+!/Code - OSS/User/snippets/
+
 # CLI/TUI applications
 !/nvim/
 !/yazi/

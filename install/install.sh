@@ -16,6 +16,9 @@ command -v yay &> /dev/null || (git clone https://aur.archlinux.org/yay.git && c
 
 yay -Syu --needed $(cat ./deps)
 
+# Install Code OSS extensions
+cat code-oss-extensions.txt | xargs -L 1 code --install-extension
+
 # Setup
 rustup toolchain add stable
 rustup default stable
