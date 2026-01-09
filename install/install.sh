@@ -10,23 +10,29 @@ git clone "$REPO"
 cd c1ph3rD0ts/install
 
 # Deps
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 command -v yay &> /dev/null || (git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay)
 
-yay -Syu --needed $(cat ./deps)
+yay -Syu --needed --noconfirm $(cat ./deps)
 
-# Install Code OSS extensions
-cat code-oss-extensions.txt | xargs -L 1 code --install-extension
-
-# Setup
+# Rustup
 rustup toolchain add stable
 rustup default stable
 rustup target add x86_64-pc-windows-gnu
 
+# Git
+echo -e "[include]\n\tpath = ~/.config/gitconfig\n$(cat "$HOME/.gitconfig")" > $HOME/.gitconfig
+
+# LY
 systemctl enable ly@tty2.service
+
+# Claude code
 mkdir -p ~/.claude
 echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
+
+# Code OSS
+cat code-oss-extensions.txt | xargs -L 1 code --install-extension
 
 # Moving dots
 cp -r ~/.config ~/.config.bak

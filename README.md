@@ -2,7 +2,9 @@
 
 ## Installation
 
-1. Create or update your `.zshrc` to source the config:
+1. Run ./install/install.sh 
+
+2. If you are using ZSH create or update your `.zshrc` to source the config:
 ```sh
 cat << 'EOF' > ~/.zshrc
 # Source zsh config files
@@ -28,12 +30,7 @@ EOF
 ```
 instead.
 
-2. Reload your shell or open a new terminal. To reload:
+3. Reload your shell or open a new terminal. To reload:
 ```sh
 source ~/.zshrc
-```
-
-3. Include gitconfig:
-```sh
-echo -e "[include]\n\tpath = ~/.config/gitconfig\n$(cat "$HOME/.gitconfig")" > $HOME/.gitconfig
 ```
