@@ -18,6 +18,7 @@ fragments
 freerdp
 ghc
 github-cli
+gitleaks
 gnu-free-fonts
 gparted
 grimblast-git
@@ -61,6 +62,7 @@ rofi
 rustup
 starship
 steam
+trufflehog
 ttf-firacode-nerd
 v4l2loopback-dkms
 veracrypt
