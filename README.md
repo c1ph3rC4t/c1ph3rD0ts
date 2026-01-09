@@ -2,7 +2,10 @@
 
 ## Installation
 
-1. Run ./install/install.sh 
+1. Run:
+```bash
+curl -fsSL https://raw.githubusercontent.com/c1ph3rC4t/c1ph3rD0ts/refs/heads/main/install/install.sh | bash
+```
 
 2. If you are using ZSH create or update your `.zshrc` to source the config:
 ```sh
