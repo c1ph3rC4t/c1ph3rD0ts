@@ -45,11 +45,14 @@ mako
 mingw-w64-gcc
 neovide
 noto-fonts
+noto-fonts-cjk
 noto-fonts-emoji
+noto-fonts-extra
 nvim
 obsidian
 obs-studio
 openbsd-netcat
+otf-firamono-nerd
 pipewire
 privacy-dots
 qt5-base
