@@ -54,7 +54,7 @@ abbr -a exclnum -r '^\!([1-9][0-9]*)$' -f exclnum_abbr
 function sudoify_abbr
     echo "sudo $(string sub -s 2 -- $argv)"
 end
-abbr -a sudoify -r '^§.+$' -f sudoify_abbr
+abbr -a sudoify -r '^§.*$' -f sudoify_abbr
 
 # AUR helper
 if test "$AUR_HELPER" != ''
