@@ -103,6 +103,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 nvim
+nvm
 obsidian
 obs-studio
 onnxruntime-cpu
@@ -140,6 +141,7 @@ qt6-webview
 qtkeychain-qt6
 rocm
 rofi
+rsync
 rustup
 starship
 steam
