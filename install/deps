@@ -1,3 +1,4 @@
+7zip
 accounts-qml-module
 accountsservice
 alsa-card-profiles
@@ -118,6 +119,7 @@ pipewire-pulse
 pipewire-session-manager
 plymouth
 privacy-dots
+protontricks-git
 pulseaudio-qt
 pulse-native-provider
 qt5-base
@@ -139,6 +141,7 @@ qt6-webengine
 qt6-websockets
 qt6-webview
 qtkeychain-qt6
+ripgrep
 rocm
 rofi
 rsync
