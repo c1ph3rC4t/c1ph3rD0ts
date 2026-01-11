@@ -8,6 +8,12 @@ set -gx PATH $HOME/.config/scripts $PATH
 # Java
 set -gx PATH $JAVA_HOME/bin $PATH
 
+# PNPM
+set -gx PNPM_HOME $HOME/.local/share/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+
 # Set up $TERM
 set -gx TERM xterm-256color
 
