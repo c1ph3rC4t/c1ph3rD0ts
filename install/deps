@@ -112,6 +112,7 @@ pipewire
 pipewire-audio
 pipewire-pulse
 pipewire-session-manager
+plymouth
 privacy-dots
 pulseaudio-qt
 pulse-native-provider
