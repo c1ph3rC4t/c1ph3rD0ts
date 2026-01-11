@@ -4,6 +4,8 @@ alsa-card-profiles
 appmenu-gtk-module
 appstream-qt
 archlinux-appstream-data
+bluez
+bluez-utils
 btop
 cabal-install
 catppuccin-gtk-theme-frappe

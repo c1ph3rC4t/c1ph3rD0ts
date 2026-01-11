@@ -14,7 +14,9 @@ sudo pacman -Syu --noconfirm
 
 command -v yay &> /dev/null || (git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay)
 
-yay -Syu --needed --noconfirm $(cat ./deps)
+yay -Syu --noconfirm
+
+yay -S --needed --noconfirm $(cat ./deps)
 
 # Rustup
 rustup toolchain add stable
