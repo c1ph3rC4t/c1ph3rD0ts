@@ -1,6 +1,5 @@
-apinix.apinix-theme
 apinix.indent-jump
-bungcip.better-toml
+tamasfe.even-better-toml
 catppuccin.catppuccin-vsc
 catppuccin.catppuccin-vsc-icons
 fill-labs.dependi
