@@ -21,6 +21,9 @@
     "workbench.settings.applyToAllProfiles": [
         "indentRainbow.errorColor",
         "indentRainbow.colors",
-        "indentRainbow.tabmixColor"
-    ]
+        "indentRainbow.tabmixColor",
+        "editor.guides.bracketPairs"
+    ],
+    "makefile.configureOnOpen": true,
+    "editor.guides.bracketPairs": true
 }

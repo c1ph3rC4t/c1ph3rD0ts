@@ -33,8 +33,8 @@ systemctl enable ly@tty2.service
 mkdir -p ~/.claude
 echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
 
-# Code OSS
-cat code-oss-extensions.txt | xargs -L 1 code --install-extension
+# Code
+cat code-extensions | xargs -L 1 code --install-extension
 
 # Moving dots
 cp -r ~/.config ~/.config.bak
