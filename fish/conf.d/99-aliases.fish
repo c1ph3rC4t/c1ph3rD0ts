@@ -49,12 +49,6 @@ if command -q nvim
     alias vi 'nvim'
 end
 
-# Fd
-if command -q fd
-    alias f 'fd'
-    alias find 'fd'
-end
-
 # Arduino
 if command -q arduino-cli
     alias ardc 'arduino-cli compile --fqbn arduino:avr:uno'
@@ -72,5 +66,7 @@ alias c 'clear'
 
 alias q 'exit'
 alias quit 'exit'
+
+alias reload 'exec fish'
 
 alias ip 'ip -c'
