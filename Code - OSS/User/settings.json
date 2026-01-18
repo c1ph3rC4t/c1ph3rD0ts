@@ -1,11 +1,18 @@
 {
+    "workbench.settings.applyToAllProfiles": [
+        "indentRainbow.errorColor",
+        "indentRainbow.colors",
+        "indentRainbow.tabmixColor",
+        "editor.guides.bracketPairs",
+        "git.autofetch",
+        "git.confirmSync",
+        "git.enableSmartCommit"
+    ],
     "workbench.startupEditor": "none",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "workbench.colorTheme": "Catppuccin Frappé",
     "workbench.iconTheme": "catppuccin-frappe",
     "editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
     "git.autofetch": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
@@ -18,12 +25,6 @@
     ],
     "indentRainbow.errorColor": "rgba(255,0,0,0.125)",
     "indentRainbow.tabmixColor": "rgba(255,0,0,0.125)",
-    "workbench.settings.applyToAllProfiles": [
-        "indentRainbow.errorColor",
-        "indentRainbow.colors",
-        "indentRainbow.tabmixColor",
-        "editor.guides.bracketPairs"
-    ],
     "makefile.configureOnOpen": true,
     "editor.guides.bracketPairs": true,
     "editor.fontLigatures": true
