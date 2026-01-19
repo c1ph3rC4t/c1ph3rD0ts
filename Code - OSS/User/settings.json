@@ -29,5 +29,6 @@
     "indentRainbow.tabmixColor": "rgba(255,0,0,0.125)",
     "makefile.configureOnOpen": true,
     "editor.guides.bracketPairs": true,
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "git.confirmSync": false
 }

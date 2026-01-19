@@ -8,6 +8,9 @@ set -gx PATH $HOME/.config/scripts $PATH
 # Java
 set -gx PATH $JAVA_HOME/bin $PATH
 
+# Cargo
+set -gx PATH $HOME/.cargo/bin/ $PATH
+
 # PNPM
 set -gx PNPM_HOME $HOME/.local/share/pnpm
 if not string match -q -- $PNPM_HOME $PATH
