@@ -38,7 +38,7 @@ end
 
 # Bat
 if command -q bat
-    alias cat 'bat -p'
+    alias cat 'bat --paging=never --style=plain'
 end
 
 # Eza
