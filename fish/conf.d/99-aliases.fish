@@ -9,6 +9,13 @@ alias die 'poweroff -f'
 
 alias restart 'reboot'
 
+# Symlink
+alias sym 'ln -s'
+alias usym 'unlink'
+alias unsym 'unlink'
+alias dsym 'unlink'
+alias desym 'unlink'
+
 # Zoxide
 if command -q zoxide
     alias cd 'z'
