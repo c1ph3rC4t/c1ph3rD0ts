@@ -5,6 +5,7 @@ alsa-card-profiles
 appmenu-gtk-module
 appstream-qt
 archlinux-appstream-data
+bat
 bluez
 bluez-utils
 btop
