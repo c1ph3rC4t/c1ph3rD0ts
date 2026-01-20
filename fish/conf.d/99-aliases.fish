@@ -1,6 +1,5 @@
 # File and directory managment
 alias mkdir 'mkdir -p'
-alias rm 'rm -r'
 
 # Power
 alias off 'poweroff'
