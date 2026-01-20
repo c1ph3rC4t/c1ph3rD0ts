@@ -32,6 +32,7 @@ fwupd-efi
 ghc
 github-cli
 gitleaks
+gnome-keyring
 gnu-free-fonts
 gparted
 grimblast-git
@@ -161,6 +162,7 @@ veracrypt
 waybar
 webkit2gtk-4.1
 wget
+xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
 xdotool
 xorg-xhost

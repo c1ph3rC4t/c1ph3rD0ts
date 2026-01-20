@@ -8,22 +8,39 @@ set -euo pipefail
 # -u          => undefined var errors
 # -o pipefail => fail if any pipeline command fails
 
-# Pull updates
+configuring=true
+. ./install.sh
+configuring=
+#\___________,
+# Get configs
+
 git pull
+#\____________,
+# Pull updates
 
-# Install new deps
-yay -S --needed --noconfirm $(cat ./deps)
+echo Installing Pacman and AUR dependencies...
+yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
+#\_________________________,
+# Install Pacman & AUR deps
 
-# Install Code extensions
-cat code-extensions | xargs -L 1 code --install-extension
+echo Installing VSCode extensions...
+cat "$VSCODE_EXTENSTION_LIST_PATH" | xargs -L 1 code --install-extension
+#\______,
+# VSCode
 
-# Install TTF fonts
+echo Installing TTF fonts...
 sudo mkdir -p /usr/share/fonts/TTF
 sudo cp ./TTF/*.ttf /usr/share/fonts/TTF/
+#\_________________,
+# Install TTF fonts
 
-# Install OTF fonts
+echo Installing OTF fonts...
 sudo mkdir -p /usr/share/fonts/OTF
 sudo cp ./OTF/*.otf /usr/share/fonts/OTF/
+#\_________________,
+# Install OTF fonts
 
-# Reload
+echo Reloading cache...
 sudo fc-cache -fv
+#\____________,
+# Reload cache

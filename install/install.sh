@@ -8,17 +8,31 @@ set -euo pipefail
 # -u          => undefined var errors
 # -o pipefail => fail if any pipeline command fails
 
+
 REPO="https://github.com/c1ph3rC4t/c1ph3rD0ts"
 TMP_DIR_NAME="c1ph3rD0ts"
+AUR_DEPS_PATH="./aur-deps"
+VSCODE_EXTENSTION_LIST_PATH="./vscode-extensions"
+
 START_DIR=$(pwd)
-#\__________________,
-# Config script vars
+TMP_DIR_PATH="/tmp/$TMP_DIR_NAME"
+INSTALL_DIR_PATH="$TMP_DIR_PATH/install/"
+#\_______________,
+# Set config vars
+
+# Check if being used as config script
+#/------------------------------------'
+if [ "$configuring" = "true" ]; then
+    return 0
+    #\___________,
+    # Exit script
+fi
 
 echo Cloning repo...
 cd /tmp
 rm -rf $TMP_DIR_NAME
 git clone "$REPO" "$TMP_DIR_NAME"
-cd /tmp/$TMP_DIR_NAME/install/
+cd "$INSTALL_DIR_PATH"
 #\_________________________,
 # Clone GIT repo into /tmp/
 
@@ -28,7 +42,13 @@ sudo pacman -Syu --noconfirm
 # Make sure pacman is up to date
 
 echo Making sure yay is installed...
-command -v yay &> /dev/null || (git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay)
+command -v yay &> /dev/null || (
+    cd /tmp/ && git clone https://aur.archlinux.org/yay.git
+    cd /tmp/yay/
+    makepkg -si
+    cd "$INSTALL_DIR_PATH"
+    rm -rf yay
+)
 #\__________________________,
 # Make sure yay is installed
 
@@ -38,12 +58,12 @@ yay -Syu --noconfirm
 # Make sure yay is up to date
 
 echo Installing Pacman and AUR dependencies...
-yay -S --needed --noconfirm $(cat ./deps)
+yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
 #\_________________________,
 # Install Pacman & AUR deps
 
 echo Installing VSCode extensions...
-cat code-extensions | xargs -L 1 code --install-extension
+cat "$VSCODE_EXTENSTION_LIST_PATH" | xargs -L 1 code --install-extension
 #\______,
 # VSCode
 
@@ -88,7 +108,7 @@ echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
 #\___________,
 # Claude code
 
-cd /tmp/$TMP_DIR_NAME/
+cd "$TMP_DIR_PATH/"
 #\_______________________,
 # Move out of install dir
 
@@ -99,14 +119,14 @@ mkdir -p $HOME/.config/
 # Backing up current dots
 
 echo Copying over dot files...
-cp -r /tmp/$TMP_DIR_NAME/* ~/.config/
-cp -r /tmp/$TMP_DIR_NAME/.[!.]* ~/.config/
+cp -r "$TMP_DIR_PATH/*" ~/.config/
+cp -r "$TMP_DIR_PATH/.[!.]*" ~/.config/
 #\_________________,
 # Copying over dots
 
 echo Cleaning up...
 cd /tmp/
-rm -rf /tmp/$TMP_DIR_NAME/
+rm -rf "$TMP_DIR_PATH/"
 #\________,
 # Clean up
 

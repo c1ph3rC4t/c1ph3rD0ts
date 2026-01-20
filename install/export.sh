@@ -8,5 +8,12 @@ set -euo pipefail
 # -u          => undefined var errors
 # -o pipefail => fail if any pipeline command fails
 
-# Export Code extensions
-code --list-extensions | tee code-extensions
+configuring=true
+. ./install.sh
+configuring=
+#\___________,
+# Get configs
+
+code --list-extensions | tee "$VSCODE_EXTENSTION_LIST_PATH"
+#\________________________,
+# Export VSCode extensions
