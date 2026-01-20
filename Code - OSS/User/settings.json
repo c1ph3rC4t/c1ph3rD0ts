@@ -30,5 +30,5 @@
     "makefile.configureOnOpen": true,
     "editor.guides.bracketPairs": true,
     "editor.fontLigatures": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
 }

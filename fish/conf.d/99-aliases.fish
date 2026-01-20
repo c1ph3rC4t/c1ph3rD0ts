@@ -36,6 +36,11 @@ if test "$DISTRO" = 'nixos'
     alias nixos-rb 'sudo nixos-rebuild switch'
 end
 
+# Bat
+if command -q bat
+    alias cat 'bat -p'
+end
+
 # Eza
 if command -q eza
     alias lso 'command ls --color'

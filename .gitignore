@@ -82,6 +82,7 @@
 
 # CLI/TUI applications
 !/nvim/
+!/bat/
 !/yazi/
 
 !/btop/
