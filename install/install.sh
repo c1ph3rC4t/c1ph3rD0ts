@@ -12,7 +12,7 @@ set -euo pipefail
 REPO="https://github.com/c1ph3rC4t/c1ph3rD0ts"
 TMP_DIR_NAME="c1ph3rD0ts"
 AUR_DEPS_PATH="./aur-deps"
-VSCODE_EXTENSTION_LIST_PATH="./vscode-extensions"
+VSCODE_EXTENSION_LIST_PATH="./vscode-extensions"
 
 START_DIR=$(pwd)
 TMP_DIR_PATH="/tmp/$TMP_DIR_NAME"
@@ -63,7 +63,7 @@ yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
 # Install Pacman & AUR deps
 
 echo Installing VSCode extensions...
-cat "$VSCODE_EXTENSTION_LIST_PATH" | xargs -L 1 code --install-extension
+cat "$VSCODE_EXTENSION_LIST_PATH" | xargs -L 1 code --install-extension
 #\______,
 # VSCode
 
@@ -89,7 +89,7 @@ systemctl enable ly@tty2.service
 #\________,
 # LY setup
 
-echo Setting up Rust toolchain and tagets...
+echo Setting up Rust toolchain and targets...
 rustup toolchain add stable
 rustup default stable
 rustup target add x86_64-pc-windows-gnu

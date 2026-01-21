@@ -14,6 +14,6 @@ configuring=
 #\___________,
 # Get configs
 
-code --list-extensions | tee "$VSCODE_EXTENSTION_LIST_PATH"
+code --list-extensions | tee "$VSCODE_EXTENSION_LIST_PATH"
 #\________________________,
 # Export VSCode extensions
