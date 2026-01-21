@@ -62,10 +62,15 @@ yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
 #\_________________________,
 # Install Pacman & AUR deps
 
+echo Patching in VSCode marketplace...
+sudo /usr/share/code-marketplace/patch.py code-marketplace patch
+#\___________________________,
+# Patch in VSCode marketplace
+
 echo Installing VSCode extensions...
-cat "" | xargs -L 1 code --install-extension
-#\______,
-# VSCode
+cat "$VSCODE_EXTENSION_LIST_PATH" | xargs -L 1 code --install-extension
+#\_________________________,
+# Install VSCode extensions
 
 echo Installing TTF fonts...
 sudo mkdir -p /usr/share/fonts/TTF

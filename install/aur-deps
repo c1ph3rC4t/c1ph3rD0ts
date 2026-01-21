@@ -13,6 +13,7 @@ cabal-install
 catppuccin-gtk-theme-frappe
 claude-code
 code
+code-marketplace
 dbus
 dialog
 dkms
