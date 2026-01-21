@@ -6,7 +6,11 @@
         "editor.guides.bracketPairs",
         "git.autofetch",
         "git.confirmSync",
-        "git.enableSmartCommit"
+        "git.enableSmartCommit",
+        "gitlens.showWhatsNewAfterUpgrades",
+        "gitlens.plusFeatures.enabled",
+        "indentRainbow.includedLanguages",
+        "cSpell.language"
     ],
     "workbench.startupEditor": "none",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
@@ -31,4 +35,14 @@
     "editor.guides.bracketPairs": true,
     "editor.fontLigatures": true,
     "git.confirmSync": false,
+    "indentRainbow.includedLanguages": [
+        "Rust",
+        "Zig",
+        "C",
+        "C++"
+    ],
+    "claudeCode.preferredLocation": "panel",
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "gitlens.plusFeatures.enabled": false,
+    "cSpell.language": "en"
 }
