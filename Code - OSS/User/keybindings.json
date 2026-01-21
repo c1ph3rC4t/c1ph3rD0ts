@@ -1,0 +1,22 @@
+[
+    {
+        "key": "alt+i",
+        "command": "editor.emmet.action.balanceIn"
+    },
+    {
+        "key": "alt+o",
+        "command": "editor.emmet.action.balanceOut"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.emmet.action.wrapWithAbbreviation"
+    },
+    {
+        "key": "alt+g",
+        "command": "openInGitHub.openRepository"
+    },
+    {
+        "key": "",
+        "command": "-C_Cpp.SwitchHeaderSource"
+    }
+]
