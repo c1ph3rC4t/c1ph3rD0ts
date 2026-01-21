@@ -18,6 +18,11 @@ git pull
 #\____________,
 # Pull updates
 
+echo Making sure all AUR packages are up to date...
+yay -Syu --noconfirm
+#\___________________________,
+# Make sure yay is up to date
+
 echo Installing Pacman and AUR dependencies...
 yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
 #\_________________________,
