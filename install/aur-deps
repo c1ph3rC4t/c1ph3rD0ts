@@ -122,7 +122,7 @@ pipewire-pulse
 pipewire-session-manager
 plymouth
 privacy-dots
-protontricks-git
+protontricks
 pulseaudio-qt
 pulse-native-provider
 qt5-base
@@ -164,7 +164,7 @@ waybar
 webkit2gtk-4.1
 wget
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 xdotool
 xorg-xhost
 yazi
