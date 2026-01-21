@@ -31,5 +31,8 @@
     "claudeCode.preferredLocation": "panel",
     "gitlens.showWhatsNewAfterUpgrades": false,
     "gitlens.plusFeatures.enabled": false,
-    "cSpell.language": "en"
+    "cSpell.language": "en, en-GB",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
