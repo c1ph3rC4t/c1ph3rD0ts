@@ -8,15 +8,15 @@ set -euo pipefail
 # -u          => undefined var errors
 # -o pipefail => fail if any pipeline command fails
 
-
 REPO="https://github.com/c1ph3rC4t/c1ph3rD0ts"
 TMP_DIR_NAME="c1ph3rD0ts"
 AUR_DEPS_PATH="./aur-deps"
-VSCODE_EXTENSION_LIST_PATH="./vscode-extensions"
+VSCODE_EXTENSION_LIST_FILENAME="vscode-extensions"
 
 START_DIR=$(pwd)
 TMP_DIR_PATH="/tmp/$TMP_DIR_NAME"
 INSTALL_DIR_PATH="$TMP_DIR_PATH/install/"
+VSCODE_EXTENSION_LIST_PATH="$INSTALL_DIR_PATH$VSCODE_EXTENSION_LIST_FILENAME"
 #\_______________,
 # Set config vars
 
@@ -63,7 +63,7 @@ yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
 # Install Pacman & AUR deps
 
 echo Installing VSCode extensions...
-cat "$VSCODE_EXTENSION_LIST_PATH" | xargs -L 1 code --install-extension
+cat "" | xargs -L 1 code --install-extension
 #\______,
 # VSCode
 
