@@ -12,8 +12,12 @@
         "command": "editor.emmet.action.wrapWithAbbreviation"
     },
     {
-        "key": "alt+g",
-        "command": "openInGitHub.openRepository"
+        "key": "cmd+'",
+        "command": "-editor.togglequotes"
+    },
+    {
+        "key": "shift+cmd+2",
+        "command": "editor.togglequotes"
     },
     {
         "key": "",
