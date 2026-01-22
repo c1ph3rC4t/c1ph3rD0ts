@@ -114,6 +114,7 @@ openbsd-netcat
 openssh
 otf-firamono-nerd
 pacman-contrib
+parallel
 pavucontrol
 pipewire
 pipewire-audio
