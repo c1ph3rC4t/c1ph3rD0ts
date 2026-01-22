@@ -72,7 +72,7 @@ sudo /usr/share/code-marketplace/patch.py code-marketplace patch
 # Patch in VSCode marketplace
 
 echo Installing VSCode extensions...
-cat "$VSCODE_EXTENSION_LIST_PATH" | xargs -L 1 code --install-extension --force
+cat "$VSCODE_EXTENSION_LIST_PATH" | xargs -L 1 code --force --install-extension
 #\_________________________,
 # Install VSCode extensions
 
