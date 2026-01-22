@@ -8,6 +8,7 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 clemenspeters.format-json
 dbaeumer.vscode-eslint
+detachhead.basedpyright
 dustypomerleau.rust-syntax
 eamodio.gitlens
 ecmel.vscode-html-css
@@ -25,7 +26,6 @@ mhutchie.git-graph
 ms-azuretools.vscode-containers
 ms-python.debugpy
 ms-python.python
-ms-python.vscode-pylance
 ms-python.vscode-python-envs
 ms-vscode.cmake-tools
 ms-vscode.cpptools
