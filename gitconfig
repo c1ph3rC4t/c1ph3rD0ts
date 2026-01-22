@@ -7,3 +7,5 @@
 	lg = lg1
 [commit]
 	gpgSign = true
+[core]
+	editor = nvim
