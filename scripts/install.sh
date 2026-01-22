@@ -122,7 +122,7 @@ cd "$TMP_DIR_PATH/"
 # Move out of install dir
 
 echo Backing up current dot files...
-mv -R $HOME/.config/ $HOME/.config.bak/
+mv $HOME/.config/ $HOME/.config.bak/
 mkdir -p $HOME/.config/
 #\_______________________,
 # Backing up current dots
