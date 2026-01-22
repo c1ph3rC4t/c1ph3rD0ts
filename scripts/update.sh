@@ -34,7 +34,7 @@ yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
 
 echo Installing VSCode extensions...
 total=$(wc -l < "./data/$VSCODE_EXTENSION_LIST_FILENAME")                                                                                                                                                                                                         
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel -j 100% --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
+cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 100% --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
 #\_________________________,
 # Install VSCode extensions
 
