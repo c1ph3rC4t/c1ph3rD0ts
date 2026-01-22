@@ -33,19 +33,19 @@ yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
 # Install Pacman & AUR deps
 
 echo Installing VSCode extensions...
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | xargs -L 1 code --force --install-extension
+cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | xargs -P 0 -L 1 code --force --install-extension
 #\_________________________,
 # Install VSCode extensions
 
 echo Installing TTF fonts...
 sudo mkdir -p /usr/share/fonts/TTF
-sudo cp ./TTF/*.ttf /usr/share/fonts/TTF/
+sudo cp ./data/TTF/*.ttf /usr/share/fonts/TTF/
 #\_________________,
 # Install TTF fonts
 
 echo Installing OTF fonts...
 sudo mkdir -p /usr/share/fonts/OTF
-sudo cp ./OTF/*.otf /usr/share/fonts/OTF/
+sudo cp ./data/OTF/*.otf /usr/share/fonts/OTF/
 #\_________________,
 # Install OTF fonts
 
