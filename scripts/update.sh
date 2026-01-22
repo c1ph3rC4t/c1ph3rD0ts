@@ -33,7 +33,7 @@ yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
 # Install Pacman & AUR deps
 
 echo Installing VSCode extensions...
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | xargs -L 1 code --install-extension
+cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | xargs -L 1 code --install-extension --force
 #\_________________________,
 # Install VSCode extensions
 
