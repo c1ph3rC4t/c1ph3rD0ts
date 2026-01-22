@@ -8,6 +8,10 @@ set -euo pipefail
 # -u          => undefined var errors
 # -o pipefail => fail if any pipeline command fails
 
+trap 'echo -e "\n\n /!\\\\ AN ERROR OCCURRED /!\\\\\\n"' ERR
+#\_____________,
+# Error handler
+
 configuring=true
 . ./install.sh
 configuring=
@@ -28,14 +32,8 @@ yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
 #\_________________________,
 # Install Pacman & AUR deps
 
-
-echo Patching in VSCode marketplace...
-sudo /usr/share/code-marketplace/patch.py code-marketplace patch
-#\___________________________,
-# Patch in VSCode marketplace
-
 echo Installing VSCode extensions...
-cat "./$VSCODE_EXTENSION_LIST_FILENAME" | xargs -L 1 code --install-extension
+cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | xargs -L 1 code --install-extension
 #\_________________________,
 # Install VSCode extensions
 

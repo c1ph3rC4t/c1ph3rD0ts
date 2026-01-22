@@ -6,8 +6,8 @@
 !/README.md
 !/LICENCE
 
-# Install
-!/install
+# Scripts
+!/scripts/
 
 # Shell
 !/fish/
@@ -69,16 +69,16 @@
 # GIT
 !/gitconfig
 
-# Code OSS
-!/Code - OSS
-/Code - OSS/*
+# VS Code
+!/Code
+/Code/*
 
-!/Code - OSS/User
-/Code - OSS/User/*
+!/Code/User
+/Code/User/*
 
-!/Code - OSS/User/settings.json
-!/Code - OSS/User/keybindings.json
-!/Code - OSS/User/snippets/
+!/Code/User/settings.json
+!/Code/User/keybindings.json
+!/Code/User/snippets/
 
 # CLI/TUI applications
 !/nvim/

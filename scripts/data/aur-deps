@@ -12,8 +12,6 @@ btop
 cabal-install
 catppuccin-gtk-theme-frappe
 claude-code
-code
-code-marketplace
 dbus
 dialog
 dkms
@@ -109,8 +107,8 @@ noto-fonts-extra
 npm
 nvim
 nvm
-obsidian
 obs-studio
+obsidian
 onnxruntime-cpu
 openbsd-netcat
 openssh
@@ -124,8 +122,8 @@ pipewire-session-manager
 plymouth
 privacy-dots
 protontricks
-pulseaudio-qt
 pulse-native-provider
+pulseaudio-qt
 qt5-base
 qt5-declarative
 qt5-quickcontrols
@@ -161,6 +159,7 @@ ttf-dejavu
 ttf-firacode-nerd
 v4l2loopback-dkms
 veracrypt
+visual-studio-code-bin
 waybar
 webkit2gtk-4.1
 wget

@@ -4,7 +4,7 @@
 
 1. Run:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/c1ph3rC4t/c1ph3rD0ts/refs/heads/main/install/install.sh | tee install.sh
+curl -fsSL https://raw.githubusercontent.com/c1ph3rC4t/c1ph3rD0ts/refs/heads/main/scripts/install.sh | tee install.sh
 chmod +x ./install.sh
 ./install.sh
 ```

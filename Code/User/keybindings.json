@@ -1,0 +1,26 @@
+[
+    {
+        "key": "alt+i",
+        "command": "editor.emmet.action.balanceIn"
+    },
+    {
+        "key": "alt+o",
+        "command": "editor.emmet.action.balanceOut"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.emmet.action.wrapWithAbbreviation"
+    },
+    {
+        "key": "cmd+'",
+        "command": "-editor.togglequotes"
+    },
+    {
+        "key": "shift+ctrl+2",
+        "command": "editor.togglequotes"
+    },
+    {
+        "key": "",
+        "command": "-C_Cpp.SwitchHeaderSource"
+    }
+]

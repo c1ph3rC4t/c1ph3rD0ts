@@ -1,0 +1,45 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.iconTheme": "catppuccin-frappe",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono', monospace",
+    "git.autofetch": true,
+    "git.enableSmartCommit": false,
+    "git.suggestSmartCommit": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "workbench.tree.renderIndentGuides": "always",
+    "indentRainbow.colors": [
+        "rgba(0,0,0,0.0)",
+        "rgba(0,0,0,0.0)",
+        "rgba(0,0,0,0.0)",
+        "rgba(255,0,0,0.125)"
+    ],
+    "indentRainbow.errorColor": "rgba(255,0,0,0.125)",
+    "indentRainbow.tabmixColor": "rgba(255,0,0,0.125)",
+    "makefile.configureOnOpen": true,
+    "editor.guides.bracketPairs": true,
+    "editor.fontLigatures": true,
+    "git.confirmSync": false,
+    "indentRainbow.includedLanguages": [
+        "Rust",
+        "Zig",
+        "C",
+        "C++"
+    ],
+    "claudeCode.preferredLocation": "panel",
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "gitlens.plusFeatures.enabled": false,
+    "cSpell.language": "en, en-GB",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
+    "chat.agent.enabled": false
+}
