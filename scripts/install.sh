@@ -14,7 +14,7 @@ trap 'echo -e "\n\n /!\\\\ AN ERROR OCCURRED /!\\\\\\n"' ERR
 
 REPO="https://github.com/c1ph3rC4t/c1ph3rD0ts"
 TMP_DIR_NAME="c1ph3rD0ts"
-AUR_DEPS_PATH="./aur-deps"
+AUR_DEPS_PATH="./data/aur-deps"
 VSCODE_EXTENSION_LIST_FILENAME="vscode-extensions"
 
 START_DIR=$(pwd)

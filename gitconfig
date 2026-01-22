@@ -7,5 +7,7 @@
 	lg = lg1
 [commit]
 	gpgSign = true
+[pull]
+	rebase = true
 [core]
 	editor = nvim
