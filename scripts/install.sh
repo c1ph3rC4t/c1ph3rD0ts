@@ -73,7 +73,7 @@ sudo /usr/share/code-marketplace/patch.py code-marketplace patch
 
 echo Installing VSCode extensions...
 total=$(wc -l < "./data/$VSCODE_EXTENSION_LIST_FILENAME")                                                                                                                                                                                                         
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 1000% --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
+cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 1000 --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
 #\_________________________,
 # Install VSCode extensions
 
