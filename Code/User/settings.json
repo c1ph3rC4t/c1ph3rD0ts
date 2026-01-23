@@ -41,5 +41,6 @@
         "error",
         "warning"
     ],
-    "chat.agent.enabled": false
+    "chat.agent.enabled": false,
+    "git.openRepositoryInParentFolders": "always"
 }
