@@ -762,12 +762,14 @@ muparser
 ncurses
 neovide
 neovim
+netcat
 netpbm
 nettle
 networkmanager
 networkmanager-qt
 nftables
 ninja
+nmap
 node-gyp
 nodejs
 nodejs-nopt

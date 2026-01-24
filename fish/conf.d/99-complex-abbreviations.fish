@@ -26,11 +26,23 @@ if command -q eza
     end
     abbr -a ltree -r '^l([1-9][0-9]*)$' -f ltree_abbr
 
+    function lgtree_abbr
+        set -l depth (string sub -s 3 -- $argv[1])
+        echo "eza --git --git-ignore -1ATL$depth"
+    end
+    abbr -a lgtree -r '^lg([1-9][0-9]*)$' -f lgtree_abbr
+
     function lltree_abbr
         set -l depth (string sub -s 3 -- $argv[1])
-        echo "eza -lAhT@L$depth --git"
+        echo "eza --git --time-style "+%Y-%m-%d %H:%M" -loAhbTL$depth"
     end
     abbr -a lltree -r '^ll([1-9][0-9]*)$' -f lltree_abbr
+
+    function llgtree_abbr
+        set -l depth (string sub -s 4 -- $argv[1])
+        echo "eza --git --git-ignore --time-style "+%Y-%m-%d %H:%M" -loAhbTL$depth"
+    end
+    abbr -a llgtree -r '^llg([1-9][0-9]*)$' -f llgtree_abbr
 end
 
 # Dealias

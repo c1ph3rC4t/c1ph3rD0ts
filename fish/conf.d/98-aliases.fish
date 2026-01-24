@@ -1,32 +1,32 @@
 # File and directory managment
-alias mkdir 'mkdir -p'
+abbr mkdir 'mkdir -p'
 
 # Power
-alias off 'poweroff'
-alias shutdown 'poweroff'
-alias shut 'poweroff'
-alias die 'poweroff -f'
+abbr off 'poweroff'
+abbr shutdown 'poweroff'
+abbr shut 'poweroff'
+abbr die 'poweroff -f'
 
-alias restart 'reboot'
+abbr restart 'reboot'
 
 # Symlink
 alias sym 'ln -s'
-alias usym 'unlink'
-alias unsym 'unlink'
-alias dsym 'unlink'
-alias desym 'unlink'
+abbr usym 'unlink'
+abbr unsym 'unlink'
+abbr dsym 'unlink'
+abbr desym 'unlink'
 
 # Zoxide
 if command -q zoxide
-    alias cd 'z'
+    abbr cd 'z'
 end
 
 # AUR helper
 if test "$AUR_HELPER" != ''
-    alias yoink "$AUR_HELPER -S"
-    alias yank "$AUR_HELPER -Rns"
-    alias yeet "$AUR_HELPER -Rns"
-    alias yawn "$AUR_HELPER -Syu"
+    abbr yoink "$AUR_HELPER -S"
+    abbr yank "$AUR_HELPER -Rns"
+    abbr yeet "$AUR_HELPER -Rns"
+    abbr yawn "$AUR_HELPER -Syu"
 end
 
 # NixOS
@@ -38,7 +38,7 @@ end
 
 # Bat
 if command -q bat
-    alias cat 'bat --paging=never --style=plain'
+    abbr cat 'bat -pp'
 end
 
 # Eza
@@ -46,7 +46,10 @@ if command -q eza
     alias lso 'command ls --color'
     alias ls 'eza'
     alias l 'eza -A'
-    alias ll 'eza -lAh@ --git'
+    alias lg 'eza --git-ignore -A'
+    alias ll 'eza --git --time-style "+%Y-%m-%d %H:%M" -loAhb'
+    alias llg 'eza --git --git-ignore --time-style "+%Y-%m-%d %H:%M" -loAhb'
+    alias tmi 'eza --git --total-size --time-style full-iso --changed -laaSOniMXomUuhBZ@R'
 else
     alias ls 'command ls --color'
     alias lso 'ls'
