@@ -41,6 +41,11 @@ if command -q bat
     abbr cat 'bat -pp'
 end
 
+# Xcp
+if command -q xcp
+    abbr cp 'xcp'
+end
+
 # Eza
 if command -q eza
     alias lso 'command ls --color'

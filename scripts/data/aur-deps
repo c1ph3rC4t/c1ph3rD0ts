@@ -1133,6 +1133,7 @@ xcb-util-image
 xcb-util-keysyms
 xcb-util-renderutil
 xcb-util-wm
+xcp
 xdg-dbus-proxy
 xdg-desktop-portal
 xdg-desktop-portal-gtk
