@@ -38,9 +38,14 @@ sudo pacman -Syu --noconfirm
 # Make sure pacman is up to date
 
 echo Installing install deps...
-sudo pacman -S --noconfirm git
+sudo pacman -S --noconfirm git gnupg
 #\_______________________,
 # Installing install deps
+
+echo Loading GPG keys...
+gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+#\_________________________________,
+# Load GPG keys rquired for install
 
 echo Cloning repo...
 cd /tmp
