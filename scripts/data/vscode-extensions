@@ -1,3 +1,4 @@
+aaron-bond.better-comments
 anseki.vscode-color
 apinix.indent-jump
 bradlc.vscode-tailwindcss
@@ -20,6 +21,7 @@ github.vscode-pull-request-github
 graphql.vscode-graphql
 graphql.vscode-graphql-syntax
 jock.svg
+kevinkyang.auto-comment-blocks
 kevinrose.vsc-python-indent
 meganrogge.template-string-converter
 mhutchie.git-graph

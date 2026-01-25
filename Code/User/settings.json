@@ -52,5 +52,9 @@
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "auto-comment-blocks.singleLineBlockOnEnter": true,
+    "auto-comment-blocks.slashStyleBlocks": [
+        "Rust"
+    ]
 }
