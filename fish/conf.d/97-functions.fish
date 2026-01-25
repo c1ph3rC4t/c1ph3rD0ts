@@ -28,3 +28,16 @@ function contains_any
     end
     return 1
 end
+
+# YT-DLP REPL
+function yt_repl
+    while true
+        echo ""
+        read -f -P "[yt-dlp repl]# " input
+        if test "$input" = "q"
+            break
+        end
+        set -f input (string replace -ra -- "'" "" $input)
+        yt-dlp "$input"
+    end
+end
