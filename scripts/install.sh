@@ -76,11 +76,6 @@ yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
 #\_________________________,
 # Install Pacman & AUR deps
 
-echo Patching in VSCode marketplace...
-sudo /usr/share/code-marketplace/patch.py code-marketplace patch
-#\___________________________,
-# Patch in VSCode marketplace
-
 echo Installing VSCode extensions...
 total=$(wc -l < "./data/$VSCODE_EXTENSION_LIST_FILENAME")                                                                                                                                                                                                         
 cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 1000 --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
