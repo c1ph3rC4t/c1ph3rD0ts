@@ -32,6 +32,16 @@ if [ "$configuring" = "true" ]; then
     # Exit script
 fi
 
+echo Making sure all Pacman packages are up to date...
+sudo pacman -Syu --noconfirm
+#\______________________________,
+# Make sure pacman is up to date
+
+echo Installing install deps...
+sudo pacman -S --noconfirm git
+#\_______________________,
+# Installing install deps
+
 echo Cloning repo...
 cd /tmp
 rm -rf $TMP_DIR_NAME
@@ -39,11 +49,6 @@ git clone "$REPO" "$TMP_DIR_NAME"
 cd "$SCRIPTS_DIR_PATH/"
 #\_________________________,
 # Clone GIT repo into /tmp/
-
-echo Making sure all Pacman packages are up to date...
-sudo pacman -Syu --noconfirm
-#\______________________________,
-# Make sure pacman is up to date
 
 echo Making sure yay is installed...
 command -v yay &> /dev/null || (
