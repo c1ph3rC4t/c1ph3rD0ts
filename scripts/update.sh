@@ -38,17 +38,25 @@ cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -
 #\_________________________,
 # Install VSCode extensions
 
-echo Installing TTF fonts...
-sudo mkdir -p /usr/share/fonts/TTF
-sudo cp ./data/TTF/*.ttf /usr/share/fonts/TTF/
-#\_________________,
-# Install TTF fonts
+# Check if TTF directory exists
+#/-----------------------------'
+if [ -d "./data/TTF" ]; then 
+    echo Installing TTF fonts...
+    sudo mkdir -p /usr/share/fonts/TTF
+    sudo xcp ./data/*.ttf /usr/share/fonts/TTF/
+    #\_________________,
+    # Install TTF fonts
+fi
 
-echo Installing OTF fonts...
-sudo mkdir -p /usr/share/fonts/OTF
-sudo cp ./data/OTF/*.otf /usr/share/fonts/OTF/
-#\_________________,
-# Install OTF fonts
+# Check if OTF directory exists
+#/-----------------------------'
+if [ -d "./data/OTF" ]; then 
+    echo Installing OTF fonts...
+    sudo mkdir -p /usr/share/fonts/OTF
+    sudo xcp ./data/*.otf /usr/share/fonts/OTF/
+    #\_________________,
+    # Install OTF fonts
+fi
 
 echo Reloading cache...
 sudo fc-cache -fv

@@ -84,20 +84,20 @@ cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -
 
 # Check if TTF directory exists
 #/-----------------------------'
-if [ -d "./TTF" ]; then 
+if [ -d "$SCRIPTS_DIR_PATH/data/TTF" ]; then 
     echo Installing TTF fonts...
     sudo mkdir -p /usr/share/fonts/TTF
-    sudo cp ./TTF/*.ttf /usr/share/fonts/TTF/
+    sudo xcp $SCRIPTS_DIR_PATH/data/*.ttf /usr/share/fonts/TTF/
     #\_________________,
     # Install TTF fonts
 fi
 
 # Check if OTF directory exists
 #/-----------------------------'
-if [ -d "./OTF" ]; then 
+if [ -d "$SCRIPTS_DIR_PATH/data/OTF" ]; then 
     echo Installing OTF fonts...
     sudo mkdir -p /usr/share/fonts/OTF
-    sudo cp ./OTF/*.otf /usr/share/fonts/OTF/
+    sudo xcp $SCRIPTS_DIR_PATH/data/*.otf /usr/share/fonts/OTF/
     #\_________________,
     # Install OTF fonts
 fi
