@@ -58,6 +58,7 @@ c-ares
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils
+cabal-install
 cabextract
 cairo
 cairomm
@@ -92,6 +93,7 @@ ddcutil
 debugedit
 debuginfod
 default-cursors
+deno
 desktop-file-utils
 device-mapper
 dialog
@@ -166,6 +168,7 @@ gdbm
 gdk-pixbuf2
 gendesk
 gettext
+ghc
 ghostscript
 giflib
 git
@@ -227,6 +230,7 @@ gupnp-igd
 gzip
 harfbuzz
 harfbuzz-icu
+haskell-language-server
 hicolor-icon-theme
 hidapi
 highway
@@ -1171,7 +1175,6 @@ yarn
 yay
 yay-debug
 yazi
-yt-dlp
 yyjson
 zenity
 zeromq
