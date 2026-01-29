@@ -38,6 +38,47 @@ function yt_repl
             break
         end
         set -f input (string replace -ra -- "'" "" $input)
-        yt-dlp "$input"
+        yt-dlp -f best "$input"
+    end
+end
+
+# GnuPG
+function gpg_repl
+    clear
+
+    if test (count $argv) -gt 0
+        set -f recipient $argv
+    else
+        gpg --list-keys
+        read -f -P "Who is the recipient? " recipient
+    end
+
+    clear
+    
+    while true
+        if ! test $recipient = ""
+            echo -e "\x1b[34m[you]\x1b[0m >==< \x1b[34m[$recipient]\x1b[0m"
+        end
+        read -f -P "[gpg]# " input
+        switch $input
+            case ""
+                break
+            case "c"
+                clear
+            case "e"
+                echo -e -- "\x1b[34m[you]\x1b[0m >==> \x1b[34m\x1b[1m[$recipient]\x1b[0m"
+                read -f -P "[msg]# " input
+                echo -- $input | gpg -ea -r $recipient
+            case "d"
+                echo -e -- "\x1b[34m\x1b[1m[you]\x1b[0m <==< \x1b[34m[$recipient]\x1b[0m"
+                read -f -P "[msg]# " input
+                echo -- $input | gpg -d
+            case "i"
+                read -f -P "[imp]# " input
+                echo -- $input | gpg --import
+            case "r"
+                gpg --list-keys
+                read -f -P "Who is the new recipient? " recipient
+        end
     end
 end
