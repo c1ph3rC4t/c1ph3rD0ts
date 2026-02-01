@@ -60,6 +60,10 @@
 !/hypr/hyprpaper.conf
 !/hypr/wal.png
 
+# Hyprlock
+!/hypr/hyprlock.conf
+!/hypr/lock.png
+
 # Waybar
 !/waybar
 
