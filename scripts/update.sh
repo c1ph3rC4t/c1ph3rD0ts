@@ -22,6 +22,11 @@ git pull
 #\____________,
 # Pull updates
 
+echo Setting up GIT hooks...
+git config core.hooksPath .githooks
+#\_______________,
+# GIT hooks setup
+
 echo Making sure all AUR packages are up to date...
 yay -Syu --noconfirm
 #\___________________________,
@@ -43,7 +48,7 @@ cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -
 if [ -d "./data/TTF" ]; then 
     echo Installing TTF fonts...
     sudo mkdir -p /usr/share/fonts/TTF
-    sudo xcp ./data/*.ttf /usr/share/fonts/TTF/
+    sudo xcp ./data/TTF/*.ttf /usr/share/fonts/TTF/
     #\_________________,
     # Install TTF fonts
 fi
@@ -53,7 +58,7 @@ fi
 if [ -d "./data/OTF" ]; then 
     echo Installing OTF fonts...
     sudo mkdir -p /usr/share/fonts/OTF
-    sudo xcp ./data/*.otf /usr/share/fonts/OTF/
+    sudo xcp ./data/OTF/*.otf /usr/share/fonts/OTF/
     #\_________________,
     # Install OTF fonts
 fi

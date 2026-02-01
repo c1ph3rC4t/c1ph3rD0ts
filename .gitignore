@@ -3,6 +3,7 @@
 
 # Core
 !/.gitignore
+!/.githooks
 !/README.md
 !/LICENCE
 
