@@ -23,10 +23,10 @@
     "editor.fontLigatures": true,
     "git.confirmSync": false,
     "indentRainbow.includedLanguages": [
-        "Rust",
-        "Zig",
-        "C",
-        "C++"
+        "rust",
+        "zig",
+        "c",
+        "c++"
     ],
     "claudeCode.preferredLocation": "panel",
     "gitlens.showWhatsNewAfterUpgrades": false,
@@ -37,10 +37,6 @@
     },
     "diffEditor.ignoreTrimWhitespace": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-    ],
     "chat.agent.enabled": false,
     "git.openRepositoryInParentFolders": "always",
     "terminal.integrated.initialHint": false,
@@ -63,16 +59,16 @@
     "better-comments.tags": [
         {
             "tag": "!",
-            "color": "#FF2D00",
+            "color": "#f4b8e4",
             "strikethrough": false,
             "underline": false,
             "backgroundColor": "transparent",
-            "bold": false,
+            "bold": true,
             "italic": false
         },
         {
             "tag": "?",
-            "color": "#3498DB",
+            "color": "#8caaee",
             "strikethrough": false,
             "underline": false,
             "backgroundColor": "transparent",
@@ -81,7 +77,7 @@
         },
         {
             "tag": "todo",
-            "color": "#FF8C00",
+            "color": "#ef9f76",
             "strikethrough": false,
             "underline": false,
             "backgroundColor": "transparent",
@@ -90,7 +86,7 @@
         },
         {
             "tag": "*",
-            "color": "#98C379",
+            "color": "#a6d189",
             "strikethrough": false,
             "underline": false,
             "backgroundColor": "transparent",
@@ -98,5 +94,34 @@
             "italic": false
         }
     ],
-    "rust-analyzer.check.command": "clippy"
+    "rust-analyzer.check.command": "clippy",
+    "errorLens.margin": "8ch",
+    "errorLens.messageTemplate": "$severity [$count] $message",
+    "errorLens.padding": "0ch 1ch 0ch 1ch",
+    "errorLens.borderRadius": "0.5ch",
+    "errorLens.messageBackgroundMode": "message",
+    "errorLens.severityText": [
+        "",
+        "",
+        "",
+        ""
+    ],
+    "errorLens.border": [
+        "1px solid",
+        "1px solid",
+        "1px solid",
+        "1px solid"
+    ],
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning",
+        "info",
+        "hint"
+    ],
+    "errorLens.gutterEmoji": {
+        "error": "",
+        "warning": "",
+        "info": "",
+        "hint": ""
+    }
 }
