@@ -34,13 +34,13 @@ if command -q eza
 
     function lltree_abbr
         set -l depth (string sub -s 3 -- $argv[1])
-        echo "eza --git --time-style "+%Y-%m-%d %H:%M" -loAhbTL$depth"
+        echo "eza --git --time-style \"+%Y-%m-%d %H:%M\" -loAhbTL$depth"
     end
     abbr -a lltree -r '^ll([1-9][0-9]*)$' -f lltree_abbr
 
     function llgtree_abbr
         set -l depth (string sub -s 4 -- $argv[1])
-        echo "eza --git --git-ignore --time-style "+%Y-%m-%d %H:%M" -loAhbTL$depth"
+        echo "eza --git --git-ignore --time-style \"+%Y-%m-%d %H:%M\" -loAhbTL$depth"
     end
     abbr -a llgtree -r '^llg([1-9][0-9]*)$' -f llgtree_abbr
 end
