@@ -112,6 +112,11 @@ sudo systemctl enable --now docker
 #\____________,
 # Docker setup
 
+echo Setting up tailscale
+sudo systemctl enable --now tailscaled
+#\_______________,
+# Tailscale setup
+
 echo Setting up LY systemd service...
 sudo systemctl enable ly@tty2.service
 #\________,
