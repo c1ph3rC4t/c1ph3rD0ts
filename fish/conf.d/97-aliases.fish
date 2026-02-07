@@ -40,6 +40,10 @@ end
 if command -q bat
     abbr cat 'bat -pp'
 end
+if command -q batcat
+    alias bat 'batcat'
+    abbr cat 'bat -pp'
+end
 
 # Xcp
 if command -q xcp
