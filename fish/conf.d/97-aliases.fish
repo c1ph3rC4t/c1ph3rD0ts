@@ -79,6 +79,10 @@ end
 if command -q fd
     alias uzip 'fd -e zip -d 1 -x unzip {} -d {/.}'
 end
+if command -q fdfind
+    alias fd 'fdfind'
+    alias uzip 'fdfind -e zip -d 1 -x unzip {} -d {/.}'
+end
 
 # Gunzip
 if command -q gunzip
