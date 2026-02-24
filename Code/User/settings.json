@@ -123,5 +123,26 @@
         "warning": "",
         "info": "",
         "hint": ""
-    }
+    },
+    "cSpell.userWords": [
+        "blorp",
+        "clippy",
+        "codegen",
+        "FIPS",
+        "getrandom",
+        "libc",
+        "memoryapi",
+        "minwindef",
+        "mldsa",
+        "mlkem",
+        "mlock",
+        "munlock",
+        "nextest",
+        "pqcrypto",
+        "randomart",
+        "spirv",
+        "thiserror",
+        "urandom",
+        "winapi"
+    ]
 }
