@@ -47,6 +47,7 @@
 /hypr/*
 
 !/hypr/hyprland.conf
+!/hypr/monitor-conf.sh
 
 !/hypr/hyprland.d/00-vars.conf
 !/hypr/hyprland.d/01-env.conf
