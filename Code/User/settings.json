@@ -126,6 +126,7 @@
     },
     "cSpell.userWords": [
         "blorp",
+        "boogaloo",
         "clippy",
         "codegen",
         "FIPS",
@@ -140,9 +141,13 @@
         "nextest",
         "pqcrypto",
         "randomart",
+        "rustc",
+        "SPIR",
         "spirv",
         "thiserror",
         "urandom",
+        "wgpu",
         "winapi"
-    ]
+    ],
+    "zig.zls.enabled": "off"
 }
