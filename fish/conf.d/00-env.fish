@@ -34,6 +34,12 @@ else
     set -gx IS_TTY false
 end
 
+if set -q TMUX
+    set -gx IS_TMUX true
+else
+    set -gx IS_TMUX false
+end
+
 # Set DISTRO and DISTRO_LIKE variables safely
 set -l _os_release (cat /etc/os-release 2>/dev/null; or cat /usr/lib/os-release 2>/dev/null)
 
