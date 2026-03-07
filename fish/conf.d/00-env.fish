@@ -28,7 +28,13 @@ set -gx TERM xterm-256color
 # Set Node Version Manager path
 set -gx NVM_DIR "$HOME/.nvm"
 
-# Set DISTRO and DISTROLIKE variables safely
+if string match -q '/dev/tty*' (tty)
+    set -gx IS_TTY true
+else
+    set -gx IS_TTY false
+end
+
+# Set DISTRO and DISTRO_LIKE variables safely
 set -l _os_release (cat /etc/os-release 2>/dev/null; or cat /usr/lib/os-release 2>/dev/null)
 
 # Makes Flatpak apps actually show up in application launchers
@@ -46,31 +52,31 @@ for line in $_os_release
     end
 
     if string match -qr '^ID_LIKE=' $line
-        set -gx DISTROLIKE (string replace 'ID_LIKE=' '' $line)
+        set -gx DISTRO_LIKE (string replace 'ID_LIKE=' '' $line)
     end
 end
 
 if not set -q DISTRO
     set -gx DISTRO unknown
 end
-if not set -q DISTROLIKE
-    set -gx DISTROLIKE unknown
+if not set -q DISTRO_LIKE
+    set -gx DISTRO_LIKE unknown
 end
 
 set -gx DISTRO (string trim --chars='"' $DISTRO)
-set -gx DISTROLIKE (string trim --chars='"' $DISTROLIKE)
+set -gx DISTRO_LIKE (string trim --chars='"' $DISTRO_LIKE)
 
 switch $DISTRO
     case arch
-        set -gx DISTROICON ''
+        set -gx DISTRO_ICON ''
     case nixos
-        set -gx DISTROICON ''
+        set -gx DISTRO_ICON ''
     case '*'
-        switch $DISTROLIKE
+        switch $DISTRO_LIKE
             case arch
-                set -gx DISTROICON ''
+                set -gx DISTRO_ICON ''
             case '*'
-                set -gx DISTROICON ''
+                set -gx DISTRO_ICON ''
         end
 end
 
@@ -84,7 +90,7 @@ else
 end
 
 # Set sudo prompt
-function sudoprompt
+function _sudo_prompt
     set_color 8caaee
     echo -ne "[sudo]  $USER "
     set_color c49bc4
@@ -92,7 +98,7 @@ function sudoprompt
     set_color normal
 end
 
-set -gx SUDO_PROMPT $(sudoprompt)
+set -gx SUDO_PROMPT $(_sudo_prompt)
 
 # Fish stuff
 set -eU fish_key_bindings
