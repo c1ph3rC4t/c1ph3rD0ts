@@ -9,6 +9,7 @@ adwaita-fonts
 adwaita-icon-theme
 adwaita-icon-theme-legacy
 aha
+aic94xx-firmware
 alsa-card-profiles
 alsa-lib
 alsa-plugins
@@ -26,6 +27,7 @@ arp-scan
 asciinema
 asciinema-agg
 asciinema-agg-debug
+ast-firmware
 asusctl
 asusctl-debug
 at-spi2-core
@@ -84,8 +86,11 @@ chrpath
 cifs-utils
 clang
 claude-code
+claude-desktop-native
+claude-desktop-native-debug
 clinfo
 cmake
+cmatrix
 coin
 compiler-rt
 composefs
@@ -659,9 +664,11 @@ hyprwayland-scanner
 hyprwire
 i2c-tools
 iana-etc
+icoutils
 icu
 iio-sensor-proxy
 ijs
+imagemagick
 imath
 imlib2
 imv
@@ -776,6 +783,7 @@ ldb
 leancrypto
 legcord
 less
+lhasa
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-audit
@@ -969,6 +977,7 @@ liblc3
 libldac
 libldap
 libliftoff
+liblqr
 liblsan
 libluv
 libmakepkg-dropins
@@ -1137,9 +1146,13 @@ linux-firmware-atheros
 linux-firmware-broadcom
 linux-firmware-cirrus
 linux-firmware-intel
+linux-firmware-liquidio
 linux-firmware-mediatek
+linux-firmware-mellanox
+linux-firmware-nfp
 linux-firmware-nvidia
 linux-firmware-other
+linux-firmware-qlogic
 linux-firmware-radeon
 linux-firmware-realtek
 linux-firmware-whence
@@ -1551,6 +1564,7 @@ tinysparql
 tinyxml
 tinyxml2
 tk
+tmux
 tomlplusplus
 tor
 tor-browser-bin
@@ -1603,6 +1617,7 @@ wayland
 wayland-protocols
 wayland-utils
 waylandpp
+wd719x-firmware
 webkit2gtk-4.1
 webrtc-audio-processing-1
 wget
@@ -1672,6 +1687,9 @@ yazi
 yyjson
 zenity
 zeromq
+zfs-dkms
+zfs-utils
+zfs-utils-debug
 zimg
 zint
 zip
