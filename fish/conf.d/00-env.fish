@@ -29,6 +29,7 @@ set -gx TERM xterm-256color
 set -gx NVM_DIR "$HOME/.nvm"
 
 if string match -q '/dev/tty*' (tty)
+    and test $XDG_SESSION_TYPE = "tty"
     set -gx IS_TTY true
 else
     set -gx IS_TTY false

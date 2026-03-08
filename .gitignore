@@ -72,6 +72,9 @@
 # Mako
 !/mako/
 
+# TMUX
+!/tmux
+
 # GIT
 !/gitconfig
 

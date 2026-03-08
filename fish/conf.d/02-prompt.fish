@@ -17,10 +17,40 @@ end
 
 if $IS_TTY
     if not $IS_TMUX
-        and not set -q XDG_SESSION_TYPE
+        and command -q tmux
         exec tmux
+    else
+        function fish_prompt
+            set_color brblue
+            echo -n $USER
+            set_color normal
+            echo -n @
+            set_color brblue
+            echo -n (prompt_hostname)
+            set_color normal
+            echo -n :
+            set_color brblue
+            echo -n (prompt_pwd)
+            set_color normal
+            echo -n '$ '
+        end
     end
-else if not $IS_TMUX
+else if $IS_TMUX
+    function fish_prompt
+        set_color brblue
+        echo -n $USER
+        set_color normal
+        echo -n @
+        set_color brblue
+        echo -n (prompt_hostname)
+        set_color normal
+        echo -n :
+        set_color brblue
+        echo -n (prompt_pwd)
+        set_color normal
+        echo -n '$ '
+    end
+else
     if command -q starship
         function starship_transient_prompt_func
             set_color 8caaee
