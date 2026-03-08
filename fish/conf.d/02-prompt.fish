@@ -17,6 +17,7 @@ end
 
 if $IS_TTY
     if not $IS_TMUX
+        and not set -q XDG_SESSION_TYPE
         exec tmux
     end
 else if not $IS_TMUX
