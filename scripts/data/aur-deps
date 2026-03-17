@@ -87,6 +87,7 @@ claude-desktop-native
 claude-desktop-native-debug
 clinfo
 cmake
+cmark
 cmatrix
 coin
 compiler-rt
@@ -125,6 +126,7 @@ dnssec-anchors
 docker
 docker-compose
 dolphin
+dosfstools
 double-conversion
 doxygen
 drkonqi
@@ -144,9 +146,12 @@ electron37
 electron39
 elfutils
 enchant
+exfatprogs
 exiv2
 expat
 eza
+f3
+f3-debug
 fakeroot
 fastfetch
 fd
@@ -225,6 +230,7 @@ gpm
 gpsd
 gptfdisk
 graphene
+graphicsmagick
 graphite
 graphviz
 grep
@@ -234,6 +240,7 @@ groff
 gsettings-desktop-schemas
 gsettings-system-schemas
 gsfonts
+gsl
 gsm
 gspell
 gssdp
@@ -249,6 +256,7 @@ gtk4
 gtkmm-4.0
 gtkmm3
 gtksourceview3
+gtksourceview4
 gts
 guile
 gulp
@@ -670,6 +678,7 @@ imath
 imlib2
 imv
 iniparser
+inkscape
 intltool
 iproute2
 iptables
@@ -678,8 +687,11 @@ iso-codes
 jack2
 jansson
 jasper
+java-environment-common
+java-runtime-common
 jbig2dec
 jbigkit
+jdk-openjdk
 jemalloc
 jq
 json-c
@@ -781,6 +793,7 @@ leancrypto
 legcord
 less
 lhasa
+lib2geom
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-audit
@@ -899,6 +912,7 @@ libcap-ng
 libcbor
 libcdio
 libcdio-paranoia
+libcdr
 libcec
 libcgif
 libcloudproviders
@@ -996,6 +1010,7 @@ libmtp
 libmysofa
 libnatpmp
 libndp
+libnet
 libnetfilter_conntrack
 libnewt
 libnfnetlink
@@ -1039,6 +1054,7 @@ libqrtr-glib
 libquadmath
 libraqm
 libraw1394
+librevenge
 librewolf-bin
 librewolf-bin-debug
 librsvg
@@ -1088,6 +1104,7 @@ libva
 libvdpau
 libverto
 libvips
+libvisio
 libvorbis
 libvpl
 libvpx
@@ -1096,6 +1113,8 @@ libwacom
 libwbclient
 libwebp
 libwireplumber
+libwpd
+libwpg
 libx11
 libxau
 libxaw
@@ -1188,8 +1207,6 @@ mesa-demos
 mesa-utils
 meson
 milou
-minecraft-launcher
-minecraft-launcher-debug
 mingw-w64-binutils
 mingw-w64-crt
 mingw-w64-gcc
@@ -1208,6 +1225,7 @@ mpfr
 mpg123
 msgpack-c
 mtdev
+mtools
 muparser
 ncurses
 neovide
@@ -1230,6 +1248,7 @@ npm
 npth
 nspr
 nss
+ntfs-3g
 numactl
 nvidia-utils
 nvm
@@ -1313,6 +1332,7 @@ perl-uri
 perl-www-robotrules
 perl-xml-parser
 pinentry
+pipes.sh
 pipewire
 pipewire-alsa
 pipewire-audio
@@ -1346,16 +1366,20 @@ polkit-kde-agent
 polkit-qt6
 poppler
 poppler-data
+poppler-glib
 poppler-qt6
 popt
 portaudio
+potrace
 powerdevil
 ppp
 pps-tools
 print-manager
+prismlauncher
 prison
 privacy-dots
 procps-ng
+progress
 protobuf
 protobuf-c
 protontricks
@@ -1367,15 +1391,21 @@ pulseaudio-qt
 purpose
 pyside6
 python
+python-appdirs
 python-attrs
 python-autocommand
+python-beautifulsoup4
 python-build
+python-cachecontrol
+python-cairo
 python-certifi
 python-cffi
+python-chardet
 python-charset-normalizer
 python-contourpy
 python-coverage
 python-cryptography
+python-cssselect
 python-cycler
 python-dateutil
 python-dbus
@@ -1394,9 +1424,11 @@ python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
 python-kiwisolver
+python-lxml
 python-markdown
 python-matplotlib
 python-more-itertools
+python-msgpack
 python-nose
 python-numpy
 python-packaging
@@ -1415,6 +1447,7 @@ python-pygdbmi
 python-pygments
 python-pyparsing
 python-pyproject-hooks
+python-pyserial
 python-pytest
 python-pyudev
 python-requests
@@ -1423,14 +1456,18 @@ python-setuptools
 python-setuptools-scm
 python-simplejson
 python-six
+python-soupsieve
+python-tinycss2
 python-tqdm
 python-trove-classifiers
 python-typing_extensions
 python-urllib3
 python-vdf
+python-webencodings
 python-wheel
 python-xlib
 python-yaml
+python-zstandard
 qca-qt6
 qcoro
 qhull
@@ -1453,6 +1490,7 @@ qt6-imageformats
 qt6-location
 qt6-multimedia
 qt6-multimedia-ffmpeg
+qt6-networkauth
 qt6-positioning
 qt6-quick3d
 qt6-quicktimeline
@@ -1469,6 +1507,7 @@ qt6-webengine
 qt6-websockets
 qt6-webview
 qtkeychain-qt6
+ragel
 rav1e
 re2
 readline
@@ -1487,6 +1526,7 @@ rustup
 samba
 sbc
 scdoc
+scour
 sdbus-cpp
 sddm
 sddm-kcm
@@ -1585,6 +1625,8 @@ ttf-nerd-fonts-symbols-common
 tzdata
 udisks2
 unibilium
+unmined-gui
+unrar
 unzip
 upower
 upx
@@ -1596,6 +1638,8 @@ v4l-utils
 v4l2loopback-dkms
 valgrind
 vapoursynth
+ventoy-bin
+ventoy-bin-debug
 veracrypt
 verdict
 vid.stab
