@@ -106,15 +106,19 @@ ForegroundVisited=140,170,238
 
 [General]
 ColorScheme=CatppuccinFrappe
-ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
+ColorSchemeHash=be878738431ee9c8b7db7b6afc1c83dc3bca5c5a
+TerminalApplication=kitty
+TerminalService=kitty.desktop
 
 [Icons]
 Theme=Catppuccin-Frappe
 
 [KDE]
 LookAndFeelPackage=org.kde.breezedark.desktop
+ShowDeleteCommand=true
 contrast=7
 frameContrast=0.2
+widgetStyle=qt6ct-style
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -131,6 +135,10 @@ Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=140
 View Style=DetailTree
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
 
 [WM]
 activeBackground=48,52,70

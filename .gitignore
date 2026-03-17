@@ -28,6 +28,8 @@
 # KDE
 !/kdedefaults/
 !/kdeglobals
+!/kded5rc
+!/kded6rc
 
 # GTK 2.0
 !/.gtkrc-2.0
@@ -47,6 +49,8 @@
 # QT
 !/qt5ct/
 !/qt6ct/
+
+!/Trolltech.conf
 
 # XDG desktop portal
 !/xdg-desktop-portal
