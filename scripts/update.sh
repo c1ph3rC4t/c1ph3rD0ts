@@ -18,9 +18,6 @@ configuring=
 #\___________,
 # Get configs
 
-git pull
-#\____________,
-# Pull updates
 
 echo Setting up GIT hooks...
 git config core.hooksPath .githooks

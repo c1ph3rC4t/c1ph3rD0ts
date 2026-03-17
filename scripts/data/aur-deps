@@ -9,7 +9,6 @@ adwaita-fonts
 adwaita-icon-theme
 adwaita-icon-theme-legacy
 aha
-aic94xx-firmware
 alsa-card-profiles
 alsa-lib
 alsa-plugins
@@ -28,8 +27,6 @@ asciinema
 asciinema-agg
 asciinema-agg-debug
 ast-firmware
-asusctl
-asusctl-debug
 at-spi2-core
 atkmm
 attica

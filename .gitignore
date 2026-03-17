@@ -22,8 +22,17 @@
 # Application launcher
 !/rofi/
 
+# X
+!/xsettingsd/
+
+# KDE
+!/kdedefaults/
+!/kdeglobals
+
 # GTK 2.0
 !/.gtkrc-2.0
+!/gtkrc-2.0
+!/gtkrc
 !/gtk-2.0/
 
 # GTK 3.0
