@@ -81,6 +81,7 @@
 
 # Waybar
 !/waybar
+/waybar/get-hyprland-kb-layout/target
 
 # Mako
 !/mako/
