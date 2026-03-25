@@ -8,14 +8,14 @@
 		"hyprland/workspaces"
 	],
 	"modules-center": [
-		"clock"
+		"clock",
+		"custom/separator",
+		"custom/vpnStat"
 	],
 	"modules-right": [
 		"custom/kbLayout",
 		"custom/separator",
 		"network",
-		"custom/separator",
-		"custom/vpnStat",
 		"custom/separator",
 		"cpu",
 		"custom/separator",
