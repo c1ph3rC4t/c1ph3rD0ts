@@ -15,6 +15,8 @@
 		"custom/separator",
 		"network",
 		"custom/separator",
+		"custom/vpnStat",
+		"custom/separator",
 		"cpu",
 		"custom/separator",
 		"memory",
@@ -71,6 +73,12 @@
 	},
 	"custom/kbLayout": {
 		"exec": "~/.config/waybar/bin/get-hyprland-kb-layout",
+		"interval": 1,
+		"format": "{}",
+		"tooltip": false
+	},
+	"custom/vpnStat": {
+		"exec": "~/.config/waybar/scripts/vpn.sh",
 		"interval": 1,
 		"format": "{}",
 		"tooltip": false
