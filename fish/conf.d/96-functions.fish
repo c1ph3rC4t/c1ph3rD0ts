@@ -38,7 +38,7 @@ function yt_repl
             break
         end
         set -f input (string replace -ra -- "'" "" $input)
-        yt-dlp -f best "$input"
+        yt-dlp -f "bv*+ba/b" "$input"
     end
 end
 

@@ -93,6 +93,11 @@ if command -q gunzip
     alias gz 'gunzip'
 end
 
+# FFprobe
+if command -q ffprobe
+    alias fftracks 'ffprobe -hide_banner -show_entries stream=index,codec_type,codec_name:stream_tags=language,title -of compact'
+end
+
 # Misc.
 alias c 'clear'
 
@@ -102,3 +107,5 @@ alias quit 'exit'
 alias reload 'exec fish'
 
 alias ip 'ip -c'
+
+alias clodd 'claude'
