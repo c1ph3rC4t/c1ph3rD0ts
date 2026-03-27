@@ -17,8 +17,10 @@ DAEMON_UNRESPONSIVE=$(echo "$WARP_STATUS" | grep -qiE "Unable to connect to the 
 STATUS+=$DAEMON_UNRESPONSIVE
 
 # Tailscale
-TAILSCALE_IS_ONLINE=$([ "$(tailscale status --json | jq -r ".Self.Online")" == "true" ] && echo Online || echo Offline)
-TAILSCALE_NODES_ONLINE=$(tailscale status --json | jq ".Peer.[].Online" | grep -iE "true" | wc -l || 0)
+TAILSCALE_UPDATE=$(tailscale status --json)
+
+TAILSCALE_IS_ONLINE=$([ "$(echo "$TAILSCALE_UPDATE" | jq -r ".Self.Online")" == "true" ] && echo Online || echo Offline)
+TAILSCALE_NODES_ONLINE=$(echo "$TAILSCALE_UPDATE" | jq ".Peer.[].Online" | grep -iE "true" | wc -l || 0)
 ((TAILSCALE_NODES_ONLINE++))
 
 [ -n "$TAILSCALE_IS_ONLINE" ] && STATUS+=$(
