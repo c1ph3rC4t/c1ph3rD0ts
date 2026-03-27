@@ -4,13 +4,15 @@
 STATUS=""
 
 # Warp
-STATUS_UPDATE=$(warp-cli status | grep -iE 'status update' | awk -F ': ' '{print $2}')
-NETWORK_STATUS=$(warp-cli status | grep -iE 'network' | awk -F ': ' '{print $2}')
-DAEMON_UNRESPONSIVE=$(warp-cli status 2>&1 | grep -qiE "Unable to connect to the CloudflareWARP daemon" && echo "Daemon disconnect.")
+WARP_STATUS=$(warp-cli status 2>&1)
+
+STATUS_UPDATE=$(echo "$WARP_STATUS" | grep -iE 'status update' | awk -F ': ' '{print $2}')
+SUB_STATUS=$(echo "$WARP_STATUS" | grep -iE 'network|reason' | awk -F ': Performing happy eyeballs to |: ' '{print $2}')
+DAEMON_UNRESPONSIVE=$(echo "$WARP_STATUS" | grep -qiE "Unable to connect to the CloudflareWARP daemon" && echo "Daemon disconnect.")
 
 [ -n "$STATUS_UPDATE" ] && STATUS+=$(
     echo "WARP: ${STATUS_UPDATE^}"
-    [ -n "$NETWORK_STATUS" ] && echo " (${NETWORK_STATUS^})"
+    [ -n "$SUB_STATUS" ] && echo " (${SUB_STATUS^})"
 )
 STATUS+=$DAEMON_UNRESPONSIVE
 
