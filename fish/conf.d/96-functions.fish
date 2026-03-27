@@ -10,9 +10,12 @@ if command -q yazi
     end
 end
 
-# Disk managment
+# Disk management
 function burn
-    sudo dd if=$argv[1] of=$argv[2] bs=4M status=progress conv=fsync
+    read -lp 'echo -e "Run \"sudo dd if=\x1b[34m\x1b[1m$argv[1]\x1b[0m of=\x1b[34m\x1b[1m$argv[2]\x1b[0m bs=4M status=progress conv=fsync\"?[y/N] "' _should_run
+    if test "$_should_run" = "y"
+        sudo dd if=$argv[1] of=$argv[2] bs=4M status=progress conv=fsync
+    end
 end
 
 # Function to check if the first arg contains any of the other args
