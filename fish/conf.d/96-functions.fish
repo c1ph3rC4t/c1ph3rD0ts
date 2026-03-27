@@ -32,6 +32,11 @@ function contains_any
     return 1
 end
 
+function cargo --wraps cargo
+    set -lx RUSTFLAGS "--remap-path-prefix=$HOME=~ --remap-path-prefix="(rustc --print sysroot)"=/rust"
+    command cargo $argv
+end
+
 # YT-DLP REPL
 function yt_repl
     while true
