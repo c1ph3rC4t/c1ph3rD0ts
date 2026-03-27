@@ -21,7 +21,8 @@ TAILSCALE_NODES_ONLINE=$(tailscale status --json | jq ".Peer.[].Online" | grep -
 
 [ -n "$TAILSCALE_IS_ONLINE" ] && STATUS+=$(
     [ -n "$STATUS" ] && echo " | "
-    echo "Tailscale: ${TAILSCALE_IS_ONLINE^} (${TAILSCALE_NODES_ONLINE^} nodes)"
+    echo "Tailscale: ${TAILSCALE_IS_ONLINE^}"
+    [ $TAILSCALE_NODES_ONLINE -ge 2 ] && echo " (${TAILSCALE_NODES_ONLINE^} nodes)"
 )
 
 # Print
