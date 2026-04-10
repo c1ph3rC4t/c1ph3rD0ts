@@ -98,6 +98,11 @@ if command -q ffprobe
     alias fftracks 'ffprobe -hide_banner -show_entries stream=index,codec_type,codec_name:stream_tags=language,title -of compact'
 end
 
+# GCC C++
+if command -q g++
+    alias g+++ 'g++ -pipe -time -O2 -g -Wall -Werror=div-by-zero -Werror=array-bounds -Werror=overflow -Wextra -Wpedantic -Wconversion -Wformat=2 -fno-omit-frame-pointer -fstack-protector-strong -fdiagnostics-color=auto -DDEBUG -fchar8_t -o cppout'
+end
+
 # Misc.
 alias c 'clear'
 

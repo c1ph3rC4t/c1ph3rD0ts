@@ -16,10 +16,6 @@ function fish_prompt
 end
 
 if $IS_TTY
-    if not $IS_TMUX
-        and command -q tmux
-        exec tmux
-    else
         function fish_prompt
             set_color brblue
             echo -n $USER
@@ -34,7 +30,6 @@ if $IS_TTY
             set_color normal
             echo -n '$ '
         end
-    end
 else if $IS_TMUX
     function fish_prompt
         set_color brblue

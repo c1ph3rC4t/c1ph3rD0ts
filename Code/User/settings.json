@@ -26,7 +26,7 @@
         "rust",
         "zig",
         "c",
-        "c++"
+        "cpp"
     ],
     "claudeCode.preferredLocation": "panel",
     "gitlens.showWhatsNewAfterUpgrades": false,
@@ -144,6 +144,7 @@
         "binutils",
         "bitvec",
         "blas",
+        "bleh",
         "blockbench",
         "blorp",
         "bluedevil",
@@ -290,6 +291,7 @@
         "poweroff",
         "pprint",
         "pqcrypto",
+        "randint",
         "randomart",
         "readback",
         "refact",
