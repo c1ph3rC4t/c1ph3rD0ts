@@ -81,11 +81,11 @@ end
 
 # Fd
 if command -q fd
-    alias uzip 'fd -e zip -d 1 -x unzip {} -d {/.}'
+    alias uzip 'fd -e zip -e jar -d 1 -x unzip {} -d {/.}'
 end
 if command -q fdfind
     alias fd 'fdfind'
-    alias uzip 'fdfind -e zip -d 1 -x unzip {} -d {/.}'
+    alias uzip 'fdfind -e zip -e jar -d 1 -x unzip {} -d {/.}'
 end
 
 # Gunzip
