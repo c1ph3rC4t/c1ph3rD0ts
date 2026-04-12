@@ -5,7 +5,9 @@
 	"modules-left": [
 		"custom/power",
 		"custom/separator",
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"custom/separator",
+		"custom/tabletMode"
 	],
 	"modules-center": [
 		"clock",
@@ -82,6 +84,13 @@
 		"interval": 1,
 		"format": "{}",
 		"tooltip": false
+	},
+	"custom/tabletMode": {
+		"exec": "~/.config/scripts/otd-toggle-mode status | grep -iEq artist && echo '' || ~/.config/scripts/otd-toggle-mode status | grep -iEq absolute && echo '' || echo '?'",
+		"on-click": "~/.config/scripts/otd-toggle-mode toggle",
+		"interval": 1,
+		"format": "{}",
+		"tooltip-format": "Tablet mode: {}"
 	},
 	"cpu": {
 		"interval": 2,

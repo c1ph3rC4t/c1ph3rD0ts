@@ -1,0 +1,36 @@
+#!/bin/bash
+CONF_DIR="$HOME/.config/OpenTabletDriver"
+STATE_FILE="$CONF_DIR/.current-mode"
+
+current=$(cat "$STATE_FILE" 2>/dev/null || echo "absolute")
+
+case "${1}" in
+    status)
+        echo "$current"
+        ;;
+    toggle)
+        if [[ "$current" == "absolute" ]]; then
+            cp "$CONF_DIR/settings-artist.json" "$CONF_DIR/settings.json"
+            echo "artist" > "$STATE_FILE"
+        else
+            cp "$CONF_DIR/settings-absolute.json" "$CONF_DIR/settings.json"
+            echo "absolute" > "$STATE_FILE"
+        fi
+        systemctl --user restart opentabletdriver.service
+        ;;
+    toggle-notify)
+        if [[ "$current" == "absolute" ]]; then
+            cp "$CONF_DIR/settings-artist.json" "$CONF_DIR/settings.json"
+            echo "artist" > "$STATE_FILE"
+            notify-send "OpenTabletDriver" "Switched to Artist Mode"
+        else
+            cp "$CONF_DIR/settings-absolute.json" "$CONF_DIR/settings.json"
+            echo "absolute" > "$STATE_FILE"
+            notify-send "OpenTabletDriver" "Switched to Absolute Mode (50% threshold)"
+        fi
+        systemctl --user restart opentabletdriver.service
+        ;;
+    *)
+        echo "Usage: otd-toggle-mode [status|toggle]"
+        ;;
+esac
