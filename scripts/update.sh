@@ -35,6 +35,11 @@ begin_check "Setting up git hooks"
     git -C "$REPO_DIR" config core.hooksPath .githooks
 end_check
 
+begin_check "Refreshing ClamAV"
+    sudo pacman -S --needed --noconfirm clamav
+    setup_clamav
+end_check
+
 begin_check "Updating packages"
     yay -Syu --noconfirm
 end_check
@@ -51,10 +56,6 @@ fi
 
 begin_check "Installing fonts"
     install_fonts
-end_check
-
-begin_check "Setting up ClamAV"
-    setup_clamav
 end_check
 
 begin_check "Enabling services"

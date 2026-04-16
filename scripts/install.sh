@@ -11,7 +11,11 @@ begin_check "Updating pacman"
 end_check
 
 begin_check "Installing bootstrap deps"
-    sudo pacman -S --noconfirm git gnupg
+    sudo pacman -S --noconfirm git gnupg clamav
+end_check
+
+begin_check "Setting up ClamAV"
+    setup_clamav
 end_check
 
 begin_check "Loading GPG keys"
@@ -48,10 +52,6 @@ end_check
 
 begin_check "Installing fonts"
     install_fonts
-end_check
-
-begin_check "Setting up ClamAV"
-    setup_clamav
 end_check
 
 begin_check "Enabling services"
