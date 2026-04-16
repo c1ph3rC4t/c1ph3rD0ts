@@ -201,6 +201,7 @@
         "efivar",
         "eglexternalplatform",
         "elfutils",
+        "endofunctors",
         "enummapset",
         "exactprint",
         "exfatprogs",
