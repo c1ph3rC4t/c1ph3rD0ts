@@ -1,11 +1,23 @@
 #!/usr/bin/env bash
 # Update existing install — syncs packages, extensions, fonts, and services
+# Usage: update.sh [-E|--skip-extensions]
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)"
 source "$SCRIPT_DIR/common.sh"
 
-TOTAL_CHECKS=8
+SKIP_EXTENSIONS=false
+for arg in "$@"; do
+    case "$arg" in
+        --skip-extensions|-E) SKIP_EXTENSIONS=true ;;
+    esac
+done
+
+if $SKIP_EXTENSIONS; then
+    TOTAL_CHECKS=7
+else
+    TOTAL_CHECKS=8
+fi
 
 begin_check "Checking for dotfile updates"
     git -C "$REPO_DIR" fetch
@@ -31,9 +43,11 @@ begin_check "Installing packages"
     install_packages
 end_check
 
-begin_check "Installing VSCode extensions"
-    install_vscode_extensions
-end_check
+if ! $SKIP_EXTENSIONS; then
+    begin_check "Installing VSCode extensions"
+        install_vscode_extensions
+    end_check
+fi
 
 begin_check "Installing fonts"
     install_fonts

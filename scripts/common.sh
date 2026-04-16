@@ -78,28 +78,28 @@ install_fonts() {
 }
 
 setup_clamav() {
-    sudo mkdir -p /etc/clamav/clamd.conf.d
-
-    {
-        echo "OnAccessIncludePath /home"
-        echo "OnAccessIncludePath /var/cache/pacman/pkg"
-        echo "OnAccessIncludePath /var/tmp/yay"
-        for dir in /home/*/; do
-            local user
-            user=$(basename "$dir")
-            echo "OnAccessExcludePath /home/$user/.config"
-            echo "OnAccessExcludePath /home/$user/.local/share"
-        done
-        echo "OnAccessExcludeUname clamav"
-        echo "OnAccessPrevention yes"
-        echo "OnAccessExtraScanning yes"
-    } | sudo tee /etc/clamav/clamd.conf.d/on-access.conf
-
-    grep -q 'IncludeDir /etc/clamav/clamd.conf.d' /etc/clamav/clamd.conf || \
-        echo 'IncludeDir /etc/clamav/clamd.conf.d' | sudo tee -a /etc/clamav/clamd.conf
+    # Append on-access settings if not already present
+    if ! grep -q 'OnAccessIncludePath /home' /etc/clamav/clamd.conf; then
+        {
+            echo ""
+            echo "# On-access scanning"
+            echo "OnAccessIncludePath /home"
+            echo "OnAccessIncludePath /var/cache/pacman/pkg"
+            echo "OnAccessIncludePath /var/tmp/yay"
+            for dir in /home/*/; do
+                local user
+                user=$(basename "$dir")
+                echo "OnAccessExcludePath /home/$user/.config"
+                echo "OnAccessExcludePath /home/$user/.local/share"
+            done
+            echo "OnAccessExcludeUname clamav"
+            echo "OnAccessPrevention yes"
+            echo "OnAccessExtraScanning yes"
+        } | sudo tee -a /etc/clamav/clamd.conf
+    fi
 
     sudo freshclam
-    sudo systemctl enable --now clamav-daemon clamav-freshclam clamonacc
+    sudo systemctl enable --now clamav-daemon clamav-freshclam clamav-clamonacc
 }
 
 setup_services() {
