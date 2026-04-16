@@ -35,7 +35,7 @@ begin_check "Setting up git hooks"
     git -C "$REPO_DIR" config core.hooksPath .githooks
 end_check
 
-begin_check "Refreshing ClamAV"
+begin_check "Setting up ClamAV"
     sudo pacman -S --needed --noconfirm clamav
     setup_clamav
 end_check
