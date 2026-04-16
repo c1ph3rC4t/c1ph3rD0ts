@@ -2,12 +2,25 @@
 # Update existing install — syncs packages, extensions, fonts, and services
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)"
 source "$SCRIPT_DIR/common.sh"
 
-TOTAL_CHECKS=7
+TOTAL_CHECKS=8
+
+begin_check "Checking for dotfile updates"
+    git -C "$REPO_DIR" fetch
+    LOCAL=$(git -C "$REPO_DIR" rev-parse HEAD)
+    REMOTE=$(git -C "$REPO_DIR" rev-parse @{u})
+    if [ "$LOCAL" != "$REMOTE" ]; then
+        git -C "$REPO_DIR" pull --ff-only
+        warn "Dotfiles were updated. Review the changes before re-running:"
+        git -C "$REPO_DIR" log --oneline "$LOCAL".."$REMOTE"
+        exit 0
+    fi
+end_check
 
 begin_check "Setting up git hooks"
-    git -C "$SCRIPT_DIR" config core.hooksPath .githooks
+    git -C "$REPO_DIR" config core.hooksPath .githooks
 end_check
 
 begin_check "Updating packages"

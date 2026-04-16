@@ -4,7 +4,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/common.sh"
 
-TOTAL_CHECKS=14
+TOTAL_CHECKS=15
 
 begin_check "Updating pacman"
     sudo pacman -Syu --noconfirm
@@ -77,6 +77,10 @@ begin_check "Installing dotfiles"
     cp -r "$TMP_DIR_PATH/"* ~/.config/
     cp -r "$TMP_DIR_PATH/."[!.]* ~/.config/
     rm -rf "$TMP_DIR_PATH/"
+end_check
+
+begin_check "Setting up git hooks"
+    git -C "$HOME/.config" config core.hooksPath .githooks
 end_check
 
 success

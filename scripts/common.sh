@@ -37,6 +37,10 @@ success() {
     fi
 }
 
+warn() {
+    echo -e " \x1b[1m\x1b[33m::\x1b[0m\x1b[1m $*\x1b[0m"
+}
+
 trap 'handle_error > /dev/stderr' ERR
 
 # Shared task functions
@@ -65,8 +69,9 @@ install_font_dir() {
 
 install_fonts() {
     local installed=false
-    install_font_dir TTF && installed=true
-    install_font_dir OTF && installed=true
+    for fmt in TTF OTF; do
+        install_font_dir "$fmt" && installed=true
+    done
     if $installed; then
         sudo fc-cache -fv
     fi

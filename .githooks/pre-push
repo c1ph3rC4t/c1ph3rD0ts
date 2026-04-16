@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-./scripts/check.sh
+"$(git rev-parse --show-toplevel)/scripts/check-dots.sh"
