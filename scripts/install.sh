@@ -1,168 +1,85 @@
 #!/usr/bin/env bash
-#\___________________,
-# Cross platform bash
+# Fresh system install — clones dotfiles repo, installs everything from scratch
 
-set -euo pipefail
-#\____________________________,
-# -e          => exit on error
-# -u          => undefined var errors
-# -o pipefail => fail if any pipeline command fails
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/common.sh"
 
-trap 'echo -e "\n\n /!\\\\ AN ERROR OCCURRED /!\\\\\\n"' ERR
-#\_____________,
-# Error handler
+TOTAL_CHECKS=14
 
-REPO="https://github.com/c1ph3rC4t/c1ph3rD0ts"
-TMP_DIR_NAME="c1ph3rD0ts"
-AUR_DEPS_PATH="./data/aur-deps"
-VSCODE_EXTENSION_LIST_FILENAME="vscode-extensions"
+begin_check "Updating pacman"
+    sudo pacman -Syu --noconfirm
+end_check
 
-START_DIR=$(pwd)
-TMP_DIR_PATH="/tmp/$TMP_DIR_NAME"
-SCRIPTS_DIR_PATH="$TMP_DIR_PATH/scripts"
-VSCODE_EXTENSION_LIST_PATH="$SCRIPTS_DIR_PATH/data/$VSCODE_EXTENSION_LIST_FILENAME"
-#\_______________,
-# Set config vars
+begin_check "Installing bootstrap deps"
+    sudo pacman -S --noconfirm git gnupg
+end_check
 
-# Check if being used as config script
-#/------------------------------------'
-if [ "$configuring" = "true" ]; then
-    return 0
-    #\___________,
-    # Exit script
-fi
+begin_check "Loading GPG keys"
+    gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+end_check
 
-echo Making sure all Pacman packages are up to date...
-sudo pacman -Syu --noconfirm
-#\______________________________,
-# Make sure pacman is up to date
-
-echo Installing install deps...
-sudo pacman -S --noconfirm git gnupg
-#\_______________________,
-# Installing install deps
-
-echo Loading GPG keys...
-gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
-#\_________________________________,
-# Load GPG keys rquired for install
-
-echo Cloning repo...
-cd /tmp
-rm -rf $TMP_DIR_NAME
-git clone "$REPO" "$TMP_DIR_NAME"
-cd "$SCRIPTS_DIR_PATH/"
-#\_________________________,
-# Clone GIT repo into /tmp/
-
-echo Making sure yay is installed...
-command -v yay &> /dev/null || (
-    cd /tmp/ && git clone https://aur.archlinux.org/yay.git
-    cd /tmp/yay/
-    makepkg -si
+begin_check "Cloning dotfiles repo"
+    cd /tmp
+    rm -rf "$TMP_DIR_NAME"
+    git clone "$REPO" "$TMP_DIR_NAME"
     cd "$SCRIPTS_DIR_PATH/"
-    rm -rf yay
-)
-#\__________________________,
-# Make sure yay is installed
+    DATA_DIR="$SCRIPTS_DIR_PATH/data"
+end_check
 
-echo Making sure all AUR packages are up to date...
-yay -Syu --noconfirm
-#\___________________________,
-# Make sure yay is up to date
+begin_check "Bootstrapping yay"
+    command -v yay &> /dev/null || (
+        cd /tmp && git clone https://aur.archlinux.org/yay.git
+        cd /tmp/yay/ && makepkg -si
+        rm -rf /tmp/yay
+    )
+end_check
 
-echo Installing Pacman and AUR dependencies...
-yay -S --needed --noconfirm $(cat "$AUR_DEPS_PATH")
-#\_________________________,
-# Install Pacman & AUR deps
+begin_check "Updating packages"
+    yay -Syu --noconfirm
+end_check
 
-echo Installing VSCode extensions...
-total=$(wc -l < "./data/$VSCODE_EXTENSION_LIST_FILENAME")                                                                                                                                                                                                         
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 1000 --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
-#\_________________________,
-# Install VSCode extensions
+begin_check "Installing packages"
+    install_packages
+end_check
 
-# Check if TTF directory exists
-#/-----------------------------'
-if [ -d "$SCRIPTS_DIR_PATH/data/TTF" ]; then 
-    echo Installing TTF fonts...
-    sudo mkdir -p /usr/share/fonts/TTF
-    sudo xcp $SCRIPTS_DIR_PATH/data/*.ttf /usr/share/fonts/TTF/
-    #\_________________,
-    # Install TTF fonts
-fi
+begin_check "Installing VSCode extensions"
+    install_vscode_extensions
+end_check
 
-# Check if OTF directory exists
-#/-----------------------------'
-if [ -d "$SCRIPTS_DIR_PATH/data/OTF" ]; then 
-    echo Installing OTF fonts...
-    sudo mkdir -p /usr/share/fonts/OTF
-    sudo xcp $SCRIPTS_DIR_PATH/data/*.otf /usr/share/fonts/OTF/
-    #\_________________,
-    # Install OTF fonts
-fi
+begin_check "Installing fonts"
+    install_fonts
+end_check
 
-echo Reloading cache...
-sudo fc-cache -fv
-#\____________,
-# Reload cache
+begin_check "Setting up ClamAV"
+    setup_clamav
+end_check
 
-echo Setting up Docker systemd service...
-sudo systemctl enable --now docker
-#\____________,
-# Docker setup
+begin_check "Enabling services"
+    setup_services
+end_check
 
-echo Setting up tailscale
-sudo systemctl enable --now tailscaled
-#\_______________,
-# Tailscale setup
+begin_check "Setting up Rust toolchain"
+    rustup default stable
+    rustup target add x86_64-pc-windows-gnu
+end_check
 
-echo Setting up LY systemd service...
-sudo systemctl enable ly@tty2.service
-#\________,
-# LY setup
+begin_check "Configuring git and Claude Code"
+    cat "$HOME/.gitconfig"
+    echo -e "[include]\n\tpath = ~/.config/gitconfig\n$(cat "$HOME/.gitconfig")" | tee -a "$HOME/.gitconfig"
+    mkdir -p ~/.claude
+    echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
+end_check
 
-echo Setting up Rust toolchain and targets...
-rustup toolchain add stable
-rustup default stable
-rustup target add x86_64-pc-windows-gnu
-#\_____________________________,
-# Rustup toolchains and targets
+begin_check "Installing dotfiles"
+    cd "$TMP_DIR_PATH/"
+    mv "$HOME/.config/" "$HOME/.config.bak/"
+    mkdir -p "$HOME/.config/"
+    cp -r "$TMP_DIR_PATH/"* ~/.config/
+    cp -r "$TMP_DIR_PATH/."[!.]* ~/.config/
+    rm -rf "$TMP_DIR_PATH/"
+end_check
 
-echo Configuring GIT...
-cat $HOME/.gitconfig
-echo -e "[include]\n\tpath = ~/.config/gitconfig\n$(cat "$HOME/.gitconfig")" | tee -a $HOME/.gitconfig
-#\_____________,
-# Configure GIT
+success
 
-echo Configuring Claude code...
-mkdir -p ~/.claude
-echo -e '{\n  "autoUpdates": false\n}' > ~/.claude/settings.json
-#\___________,
-# Claude code
-
-cd "$TMP_DIR_PATH/"
-#\_______________________,
-# Move out of install dir
-
-echo Backing up current dot files...
-mv $HOME/.config/ $HOME/.config.bak/
-mkdir -p $HOME/.config/
-#\_______________________,
-# Backing up current dots
-
-echo Copying over dot files...
-cp -r $TMP_DIR_PATH/* ~/.config/
-cp -r $TMP_DIR_PATH/.[!.]* ~/.config/
-#\_________________,
-# Copying over dots
-
-echo Cleaning up...
-cd /tmp/
-rm -rf "$TMP_DIR_PATH/"
-#\________,
-# Clean up
-
-echo -e "If you are interested in gaming on linux please run:\ncurl -fsSL \"https://c1ph3rc4t.github.io/gaming-on-linux/main.sh\" | sh"
-#\________________,
-# Advertizing lmao
+echo -e "\nIf you are interested in gaming on linux please run:"
+echo 'curl -fsSL "https://c1ph3rc4t.github.io/gaming-on-linux/main.sh" | sh'

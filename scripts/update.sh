@@ -1,81 +1,37 @@
 #!/usr/bin/env bash
-#\___________________,
-# Cross platform bash
+# Update existing install — syncs packages, extensions, fonts, and services
 
-set -euo pipefail
-#\____________________________,
-# -e          => exit on error
-# -u          => undefined var errors
-# -o pipefail => fail if any pipeline command fails
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/common.sh"
 
-trap 'echo -e "\n\n /!\\\\ AN ERROR OCCURRED /!\\\\\\n"' ERR
-#\_____________,
-# Error handler
+TOTAL_CHECKS=7
 
-configuring=true
-. ./install.sh
-configuring=
-#\___________,
-# Get configs
+begin_check "Setting up git hooks"
+    git -C "$SCRIPT_DIR" config core.hooksPath .githooks
+end_check
 
+begin_check "Updating packages"
+    yay -Syu --noconfirm
+end_check
 
-echo Setting up GIT hooks...
-git config core.hooksPath .githooks
-#\_______________,
-# GIT hooks setup
+begin_check "Installing packages"
+    install_packages
+end_check
 
-echo Making sure all AUR packages are up to date...
-yay -Syu --noconfirm
-#\___________________________,
-# Make sure yay is up to date
+begin_check "Installing VSCode extensions"
+    install_vscode_extensions
+end_check
 
-echo Installing Pacman and AUR dependencies...
-yay -S --needed --noconfirm $(cat $AUR_DEPS_PATH)
-#\_________________________,
-# Install Pacman & AUR deps
+begin_check "Installing fonts"
+    install_fonts
+end_check
 
-echo Installing VSCode extensions...
-total=$(wc -l < "./data/$VSCODE_EXTENSION_LIST_FILENAME")                                                                                                                                                                                                         
-cat "./data/$VSCODE_EXTENSION_LIST_FILENAME" | parallel --retries 10 --delay 1 -j 100% --line-buffer --tagstring '[{#}/'$total']' 'code --force --install-extension {}' 
-#\_________________________,
-# Install VSCode extensions
+begin_check "Setting up ClamAV"
+    setup_clamav
+end_check
 
-# Check if TTF directory exists
-#/-----------------------------'
-if [ -d "./data/TTF" ]; then 
-    echo Installing TTF fonts...
-    sudo mkdir -p /usr/share/fonts/TTF
-    sudo xcp ./data/TTF/*.ttf /usr/share/fonts/TTF/
-    #\_________________,
-    # Install TTF fonts
-fi
+begin_check "Enabling services"
+    setup_services
+end_check
 
-# Check if OTF directory exists
-#/-----------------------------'
-if [ -d "./data/OTF" ]; then 
-    echo Installing OTF fonts...
-    sudo mkdir -p /usr/share/fonts/OTF
-    sudo xcp ./data/OTF/*.otf /usr/share/fonts/OTF/
-    #\_________________,
-    # Install OTF fonts
-fi
-
-echo Reloading cache...
-sudo fc-cache -fv
-#\____________,
-# Reload cache
-
-echo Setting up Docker systemd service...
-sudo systemctl enable --now docker
-#\____________,
-# Docker setup
-
-echo Setting up tailscale
-sudo systemctl enable --now tailscaled
-#\_______________,
-# Tailscale setup
-
-echo Setting up LY systemd service...
-sudo systemctl enable ly@tty2.service
-#\________,
-# LY setup
+success
