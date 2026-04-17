@@ -320,5 +320,6 @@
         "yeet",
         "yoink"
     ],
-    "zig.zls.enabled": "off"
+    "zig.zls.enabled": "off",
+    "extensions.ignoreRecommendations": true
 }
