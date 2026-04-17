@@ -56,6 +56,7 @@
     "auto-comment-blocks.slashStyleBlocks": [
         "Rust"
     ],
+    
     "better-comments.tags": [
         {
             "tag": "!",
@@ -94,6 +95,7 @@
             "italic": false
         }
     ],
+
     "rust-analyzer.check.command": "clippy",
     "errorLens.margin": "8ch",
     "errorLens.messageTemplate": "$severity [$count] $message",
@@ -183,6 +185,7 @@
         "cryptohash",
         "crypton",
         "cryptsetup",
+        "datalayout",
         "dbus",
         "dconf",
         "ddcutil",
@@ -284,6 +287,7 @@
         "hyprwire",
         "icoutils",
         "importmap",
+        "inlinehint",
         "libc",
         "memoryapi",
         "minwindef",
@@ -305,6 +309,8 @@
         "recip",
         "refact",
         "rustc",
+        "rustlib",
+        "rustup",
         "semigroups",
         "SIGSEGV",
         "SPIR",
@@ -314,12 +320,15 @@
         "ucode",
         "urandom",
         "uzip",
+        "vtable",
         "webdevs",
         "wgpu",
         "winapi",
         "yeet",
-        "yoink"
+        "yoink",
+        "zeroinitializer"
     ],
     "zig.zls.enabled": "off",
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "highlight-bad-chars.additionalUnicodeChars": ["\u201C", "\u201D", "\u2018", "\u2019"]
 }
