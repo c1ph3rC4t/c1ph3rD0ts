@@ -2,14 +2,16 @@ add_newline = false
 palette = "custom"
 
 format = """
-[╭─](fg:primary)$username[🭬](bg:secondary fg:primary)$hostname[🭬](bg:primary fg:secondary)$directory[](fg:primary)$fill[](fg:secondary)$shell[🭮](bg:secondary fg:primary)$time[](fg:primary)
-[╰─](fg:primary)$character
+[╭─](bold fg:primary)$username[🭬](bold bg:secondary fg:primary)$hostname[🭬](bold bg:primary fg:secondary)$directory[](bold fg:primary)$fill[](bold fg:secondary)$shell[🭮](bold bg:secondary fg:primary)$time[](bold fg:primary)
+[╰─\\[](bold fg:primary)$character[\\]─](bold fg:primary)[λ](fg:lambda) 
 """
 
 [palettes.custom]
 primary = "#8caaee"
 secondary = "#9cbbff"
 lambda = "#c49bc4"
+success = "#b0d59a"
+error = "#d67a82"
 
 [username]
 format = "[ $user ](bg:primary fg:black)"
@@ -21,13 +23,13 @@ format = "[ $hostname ](bg:secondary fg:black)"
 ssh_only = false
 
 [directory]
-format = "[ $path](bg:primary fg:black)[](fg:primary)"
+format = "[ $path](bg:primary fg:black)"
 truncation_length = 3
 truncate_to_repo = true
 
 [fill]
 symbol = "─"
-style = "fg:primary"
+style = "bold fg:primary"
 
 [shell]
 format = "[ $indicator](bg:secondary fg:black)"
@@ -42,5 +44,7 @@ time_format = "%H:%M"
 disabled = false
 
 [character]
-success_symbol = "[λ](fg:lambda)"
-error_symbol = "[λ](fg:lambda)"
+success_symbol = "[](fg:success)"
+error_symbol = "[](fg:error)"
+format = "$symbol"
+

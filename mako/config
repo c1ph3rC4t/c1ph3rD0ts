@@ -1,7 +1,7 @@
 # ~/.config/mako/config
 
 # Font
-font=Fira Code Nerd Font Mono 12
+font=Fira Code Nerd Font Mono 10
 
 # Colors matching your waybar
 background-color=#1c192d
@@ -42,14 +42,8 @@ background-color=#1c192d
 text-color=#8caaee
 border-color=#8caaee
 
-[urgency=critical]
+[urgency=high]
 background-color=#1c192d
 text-color=#D67A82
 border-color=#D67A82
 default-timeout=0
-
-[urgency=high]
-background-color=#1c192d
-text-color=#F0D395
-border-color=#F0D395
-default-timeout=8000
