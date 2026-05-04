@@ -17,6 +17,8 @@
 	"modules-right": [
 		"custom/kbLayout",
 		"custom/separator",
+		"custom/pkgsToUpdate",
+		"custom/separator",
 		"network",
 		"custom/separator",
 		"cpu",
@@ -85,6 +87,13 @@
 		"exec": "~/.config/waybar/scripts/vpn.sh",
 		"interval": 1,
 		"format": "{}",
+		"tooltip": false
+	},
+	"custom/pkgsToUpdate": {
+		"exec": "yay -Qu | wc -l",
+		"on-click": "hyprctl dispatch exec '[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty yay -Syyu'",
+		"interval": 60,
+		"format": "󰏗 {}",
 		"tooltip": false
 	},
 	"custom/tabletMode": {
