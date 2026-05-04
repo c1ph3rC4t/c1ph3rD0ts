@@ -334,5 +334,10 @@
     ],
     "zig.zls.enabled": "off",
     "extensions.ignoreRecommendations": true,
-    "highlight-bad-chars.additionalUnicodeChars": ["\u201C", "\u201D", "\u2018", "\u2019"]
+    "highlight-bad-chars.additionalUnicodeChars": [
+        "\u201C",
+        "\u201D",
+        "\u2018",
+        "\u2019"
+    ]
 }
