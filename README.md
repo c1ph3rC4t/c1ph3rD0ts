@@ -24,9 +24,9 @@ EOF
 cp ~/.zshrc ~/.zshrc.bak
 ```
 
-**Note:** If you would like multiple users to use the same dot files stored in `/path/to/zsh` then do:
+**Note:** If you would like multiple users to use the same dot files stored in `/path/to/.zshrc` then do:
 ```sh
-cat << 'EOF' > ~/.zshrc
+cat << 'EOF' > /path/to/.zshrc
 # Source zsh config files
 for config in /path/to/zsh.d/*.zsh; do
   [ -f "$config" ] && source "$config"
