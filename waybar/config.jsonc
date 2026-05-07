@@ -91,7 +91,7 @@
 	},
 	"custom/pkgsToUpdate": {
 		"exec": "yay -Qu | wc -l",
-		"on-click": "hyprctl dispatch exec \"[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty bash -c \\\"yay -Syyu && echo && read -p 'Press enter to exit...'\\\"\"",
+		"on-click": "hyprctl dispatch exec \"[float; size 800 450; minsize 800 450; maxsize 800 450; center; stayfocused] kitty bash -c \\\"yay -Syyu && echo && read -p 'Press enter to exit...' || $SHELL\\\"\"",
 		"interval": 5,
 		"format": "󰏗 {}",
 		"tooltip": false
