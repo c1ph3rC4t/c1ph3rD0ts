@@ -50,6 +50,11 @@ if command -q xcp
     abbr cp 'xcp'
 end
 
+# GPG
+if command -q xcp
+    alias jgpg="just --justfile ~/.config/just/jgpg.just --working-directory . --"
+end
+
 # Eza
 if command -q eza
     alias lso 'command ls --color'

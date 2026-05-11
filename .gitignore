@@ -16,6 +16,9 @@
 !/starship.toml
 !/oh-my-posh.json
 
+# Custom justfiles
+!/just/
+
 # Terminal
 !/kitty/
 
