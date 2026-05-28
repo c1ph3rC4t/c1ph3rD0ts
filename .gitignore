@@ -19,11 +19,6 @@
 # Custom justfiles
 !/just/
 
-# XDG
-!/environment.d
-/environment.d/*
-!/environment.d/xdg.conf
-
 # Terminal
 !/kitty/
 
