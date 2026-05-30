@@ -82,6 +82,10 @@
 !/hypr/hyprlock.conf
 !/hypr/lock.png
 
+# Quickshell
+!/quickshell
+/quickshell/plugin/build
+
 # Waybar
 !/waybar
 /waybar/get-hyprland-kb-layout/target

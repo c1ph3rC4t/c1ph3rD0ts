@@ -19,6 +19,7 @@ brightnessctl
 btop
 cabal-install
 catppuccin-gtk-theme-frappe
+cava
 clamav
 claude-code
 claude-desktop-native
@@ -60,6 +61,7 @@ inkscape
 inotify-tools
 iw
 just
+just-lsp
 kde-gtk-config
 kdeplasma-addons
 kgamma
@@ -79,7 +81,6 @@ lld
 luit
 ly
 macchanger
-mako
 man-pages
 mangohud
 megabasterd-bin
@@ -126,6 +127,7 @@ python-setuptools-scm
 qt5ct-kde
 qt6-wayland
 qt6ct-kde
+quickshell-git
 roc-toolkit
 rofi
 rpi-imager
@@ -155,7 +157,6 @@ valgrind
 ventoy-bin
 veracrypt
 visual-studio-code-bin
-vulkan-headers
 wacomtablet
 waybar
 wget

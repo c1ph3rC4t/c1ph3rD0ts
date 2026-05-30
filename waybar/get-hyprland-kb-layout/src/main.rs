@@ -1,3 +1,9 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+//
+// Copyright (c) 2026 c1ph3rC4t
+
 use serde_json::Value;
 use std::process::Command;
 
@@ -7,8 +13,7 @@ fn main() {
         .output()
         .expect("Failed to execute hyprctl");
 
-    let json: Value = serde_json::from_slice(&output.stdout)
-        .expect("Failed to parse JSON");
+    let json: Value = serde_json::from_slice(&output.stdout).expect("Failed to parse JSON");
 
     let keymap = json["keyboards"]
         .as_array()

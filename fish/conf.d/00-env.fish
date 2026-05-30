@@ -53,6 +53,11 @@ if not string match -q "*$HOME/.local/share/flatpak/exports/share*" $XDG_DATA_DI
     set -gx XDG_DATA_DIRS $HOME/.local/share/flatpak/exports/share $XDG_DATA_DIRS
 end
 
+# QML modules
+if not contains $HOME/.local/lib/qt6/qml $QML_IMPORT_PATH
+    set -gx QML_IMPORT_PATH $HOME/.local/lib/qt6/qml $QML_IMPORT_PATH
+end
+
 for line in $_os_release
     if string match -qr '^ID=' $line
         set -gx DISTRO (string replace 'ID=' '' $line)

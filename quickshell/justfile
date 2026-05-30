@@ -1,0 +1,44 @@
+prefix := env("HOME", "") / ".local"
+build_dir := "plugin/build"
+
+alias b := build
+
+alias i := install
+
+alias c := clean
+alias wipe := clean
+alias w := clean
+
+alias r := restart
+
+default: install
+
+# Configure & compile
+build:
+    cmake -B {{build_dir}} -S plugin \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX={{prefix}}
+    cmake --build {{build_dir}} -j
+
+# Build & install
+install: build
+    cmake --install {{build_dir}}
+
+# Wipe build
+clean:
+    rm -rf {{build_dir}}
+
+# Restart Quickshell
+restart:
+    -pkill -x qs
+    sleep 0.3
+    nohup qs >/dev/null 2>&1 & disown
+
+# Show where stuff is going
+where:
+    @echo "prefix:       {{prefix}}"
+    @echo "build dir:    {{build_dir}}"
+    @echo "module path:  {{prefix}}/lib/qt6/qml/Caelestia/Blobs/"
+    @echo
+    @echo "Make sure QML_IMPORT_PATH contains {{prefix}}/lib/qt6/qml"
+    @echo "Current value: \"$QML_IMPORT_PATH\""

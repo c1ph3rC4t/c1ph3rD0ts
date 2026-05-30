@@ -23,7 +23,7 @@ window#waybar {
   margin-left: 25px;
   margin-bottom: 0px;
   margin-right: 25px;
-  background: rgba(28, 25, 45, 1);
+  background: #1c192d;
   color: #8caaee;
   border-radius: 20px;
 }
