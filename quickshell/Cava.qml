@@ -13,7 +13,7 @@ Item {
     property int barCount: 24
     property int framerate: 60
     property int noiseReduction: 77
-    property color barColor: "#88c0d0"
+    property color barColor: "#8caaee"
     property int barSpacing: 2
     property int barRadius: 2
 
