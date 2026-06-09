@@ -16,7 +16,8 @@ Item {
     property real val: 50
     property real maxVal: 100
     property real minVal: 0
-    property real valPrec: 1 
+    property real valPrec: 1
+    property real dur: 2000
 
     property color barFgColor: "#8caaee"
     property color barBgColor: "#525c87"
@@ -31,7 +32,11 @@ Item {
     Layout.preferredWidth: size
     Layout.preferredHeight: size
 
-    Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
+    Behavior on val { NumAnim { type: NumAnim.Slow; duration: dur; overshoot: 0.0 } }
+
+    function clamp(val, min, max) {
+        return Math.min(Math.max(val, min), max)
+    }
 
     function arcPath(cx, cy, r, aDeg, nDeg) {
         aDeg = aDeg - 90
@@ -63,7 +68,7 @@ Item {
             strokeColor: barFgColor
             capStyle: ShapePath.RoundCap
             fillColor: "#00000000"
-            PathSvg { path: arcPath(root.size / 2, root.size / 2, root.size / 2 - root.thickness * root.size / 600, -120, (Math.max(minVal, val - minVal) / (maxVal - minVal)) * 240) }
+            PathSvg { path: arcPath(root.size / 2, root.size / 2, root.size / 2 - root.thickness * root.size / 600, -120, (Math.max(minVal, clamp(val, minVal, maxVal) - minVal) / (maxVal - minVal)) * 240) }
         }
     }
 

@@ -19,6 +19,7 @@ import C1ph3r.Blobs
 ShellRoot {
     id: root
 
+    property real volume: (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100
     property real diskUsage: 0
     property real ramUsage: 0
     property real gpuLoad: 0
@@ -26,10 +27,24 @@ ShellRoot {
     property string _gpuPath: ""
     property string _gpuType: ""
 
+    FileView {
+        id: statFile
+        path: "/proc/stat"
+        blockLoading: true
+    }
+    FileView {
+        id: memFile
+        path: "/proc/meminfo"
+        blockLoading: true
+    }
+    FileView {
+        id: gpuFile
+        path: ""
+        blockLoading: true
+    }
     PwObjectTracker {
 		objects: [ Pipewire.defaultAudioSink ]
 	}
-
     Process {
         id: diskUsagePoll
         command: ["sh", "-c", "df --output=pcent /"]
@@ -40,7 +55,6 @@ ShellRoot {
             }
         }
     }
-
     Process {
         id: gpuDetect
         command: ["sh", "-c", "for f in /sys/class/drm/card*/device/gpu_busy_percent; do echo amd:$f; exit; done; which nvidia-smi >/dev/null 2>&1 && echo nvidia"]
@@ -57,22 +71,6 @@ ShellRoot {
                 }
             }
         }
-    }
-
-    FileView {
-        id: statFile
-        path: "/proc/stat"
-        blockLoading: true
-    }
-    FileView {
-        id: memFile
-        path: "/proc/meminfo"
-        blockLoading: true
-    }
-    FileView {
-        id: gpuFile
-        path: ""
-        blockLoading: true
     }
     Process {
         id: nvidiaPoll
@@ -146,7 +144,10 @@ ShellRoot {
             readonly property color accent: "#8caaee"
             readonly property color accentDim: Qt.alpha(accent, 0.4)
             readonly property color accentDark: "#525c87"
+            readonly property color warn: '#f0d395'
+            readonly property color warnDark: '#9b8861'
             readonly property color crit: "#d67a82"
+            readonly property color critDark: '#864f53'
             readonly property color textOn: "#ffffff"
 
             // Mut Vars
@@ -478,12 +479,14 @@ ShellRoot {
                             CircleBar {
                                 val: root.cpuLoad
                                 valDisplayFormat: ""
+                                barBgColor: val >= 80 ? win.critDark : val >= 60 ? win.warnDark : win.accentDark
+                                barFgColor: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
 
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
                                     text: ""
-                                    color: win.accent
+                                    color: parent.val >= 80 ? win.crit : parent.val >= 60 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font Mono"
                                     font.pixelSize: 18
                                     anchors.centerIn: parent
@@ -494,7 +497,7 @@ ShellRoot {
                                 property real val: root.cpuLoad
                                 Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
-                                color: win.accent
+                                color: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
@@ -516,12 +519,14 @@ ShellRoot {
                             CircleBar {
                                 val: root.gpuLoad
                                 valDisplayFormat: ""
+                                barBgColor: val >= 80 ? win.critDark : val >= 60 ? win.warnDark : win.accentDark
+                                barFgColor: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
 
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
                                     text: "󰢮"
-                                    color: win.accent
+                                    color: parent.val >= 80 ? win.crit : parent.val >= 60 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font Mono"
                                     font.pixelSize: 18
                                     anchors.centerIn: parent
@@ -532,7 +537,7 @@ ShellRoot {
                                 property real val: root.gpuLoad
                                 Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
-                                color: win.accent
+                                color: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
@@ -554,12 +559,14 @@ ShellRoot {
                             CircleBar {
                                 val: root.ramUsage
                                 valDisplayFormat: ""
+                                barBgColor: val >= 80 ? win.critDark : val >= 60 ? win.warnDark : win.accentDark
+                                barFgColor: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
 
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
                                     text: ""
-                                    color: win.accent
+                                    color: parent.val >= 80 ? win.crit : parent.val >= 60 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font Mono"
                                     font.pixelSize: 18
                                     anchors.centerIn: parent
@@ -570,7 +577,7 @@ ShellRoot {
                                 property real val: root.ramUsage
                                 Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
-                                color: win.accent
+                                color: val >= 80 ? win.crit : val >= 60 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
@@ -592,12 +599,14 @@ ShellRoot {
                             CircleBar {
                                 val: root.diskUsage
                                 valDisplayFormat: ""
+                                barBgColor: val >= 90 ? win.critDark : val >= 80 ? win.warnDark : win.accentDark
+                                barFgColor: val >= 90 ? win.crit : val >= 80 ? win.warn : win.accent
 
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
                                     text: "󰋊"
-                                    color: win.accent
+                                    color: parent.val >= 90 ? win.crit : parent.val >= 80 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font Mono"
                                     font.pixelSize: 16
                                     anchors.centerIn: parent
@@ -607,7 +616,7 @@ ShellRoot {
                                 property real val: root.diskUsage
                                 Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
-                                color: win.accent
+                                color: val >= 90 ? win.crit : val >= 80 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
@@ -627,14 +636,17 @@ ShellRoot {
                             }
 
                             CircleBar {
-                                val: Math.min(100, (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100)
+                                val: root.volume
                                 valDisplayFormat: ""
+                                dur: 1000
+                                barBgColor: val >= 120 ? win.critDark : val > 100.1 ? win.warnDark : win.accentDark
+                                barFgColor: val >= 120 ? win.crit : val > 100.1 ? win.warn : win.accent
 
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
-                                    text: ""
-                                    color: win.accent
+                                    text: parent.val >= 70 ? "" : parent.val >= 30 ? "" : parent.val >= 0.1 ? "" : ""
+                                    color: parent.val >= 120 ? win.crit : parent.val > 100.1 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font Mono"
                                     font.pixelSize: 16
                                     anchors.centerIn: parent
@@ -642,10 +654,10 @@ ShellRoot {
                                 }
                             }
                             Text {
-                                property real val: (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100
-                                Behavior on val { NumAnim { type: NumAnim.Slow; duration: 2000; overshoot: 0.0 } }
+                                property real val: root.volume
+                                Behavior on val { NumAnim { type: NumAnim.Slow; duration: 1000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
-                                color: win.accent
+                                color: val >= 120 ? win.crit : val > 100.1 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
