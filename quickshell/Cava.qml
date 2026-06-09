@@ -71,9 +71,7 @@ noise_reduction = ${root.noiseReduction}
                 radius: root.barRadius
                 color: root.barColor
 
-                Behavior on height {
-                    NumberAnimation { duration: 50 }
-                }
+                Behavior on height { NumAnim{ type: NumAnim.Fast; overshoot: 4.0 } }
             }
         }
     }

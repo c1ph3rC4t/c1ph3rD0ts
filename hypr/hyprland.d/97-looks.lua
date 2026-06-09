@@ -107,7 +107,7 @@ hl.animation({
 hl.config({
     general = {
         gaps_in = 7.5,
-        gaps_out = { top = 70, right = 30, bottom = 30, left = 80 },
+        gaps_out = { top = 70, right = 30, bottom = 30, left = 70 },
         border_size = 2,
         col = {
             active_border = { colors = { "rgba(8caaeeff)", "rgba(8caaeeff)" }, angle = 45 },

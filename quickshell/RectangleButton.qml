@@ -12,15 +12,14 @@ Item {
 
     property string text: ""
     property int textSize: 30
-    property real ballRatio: 0.5
 
     property bool active: false
     property bool expandOnHover: true
 
     property color textColor: "#8caaee"
     property color textActiveColor: "#ffffff"
-    property color ballColor: Qt.alpha(textColor, 0.4)
-    property color ballActiveColor: textColor
+    property color rectColor: Qt.alpha(textColor, 0.4)
+    property color rectActiveColor: textColor
 
     property int animDur: 180
 
@@ -28,41 +27,30 @@ Item {
 
     readonly property bool expanded: active || (expandOnHover && mouse.containsMouse)
 
-
-    implicitWidth: textSize
-    implicitHeight: textSize
-    Layout.preferredWidth: textSize
-    Layout.preferredHeight: textSize
+    Layout.preferredWidth: text.implicitWidth + text.implicitHeight
+    Layout.preferredHeight: text.implicitHeight
     Layout.alignment: Qt.AlignHCenter
-
-    // RealEstate{}
 
     Rectangle {
         anchors.centerIn: parent
-        width: root.expanded ? parent.width > parent.height ? parent.width * root.ballRatio : parent.height * root.ballRatio : 0
-        height: width
-        radius: width / 2
-        color: root.expanded ? root.ballActiveColor : root.ballColor
+        width: root.expanded ? parent.width - text.implicitHeight / 2 : 0
+        height: root.expanded ? parent.height : 0
+        radius: width > height ? height / 2 : width / 2
+        color: root.expanded ? root.rectActiveColor : root.rectColor
 
         Behavior on width { NumAnim { type: NumAnim.Fast; overshoot: 4.0 } }
         Behavior on color { ColAnim { type: ColAnim.Fast; overshoot: 4.0 } }
-
-        // RealEstate{}
     }
 
     Text {
-        width: parent.width
-        height: parent.height
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+        id: text
+        anchors.centerIn: parent
         text: root.text
         color: root.expanded ? root.textActiveColor : root.textColor
         font.family: "Fira Code Nerd Font Mono"
         font.pixelSize: root.textSize
 
         Behavior on color { ColAnim { type: ColAnim.Fast; overshoot: 4.0 } }
-
-        // RealEstate{}
     }
 
     MouseArea {
