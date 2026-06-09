@@ -181,6 +181,7 @@
         "composefs",
         "convertlit",
         "coreutils",
+        "couldflare",
         "cppdap",
         "cpphs",
         "cryptohash",
@@ -204,6 +205,7 @@
         "edex",
         "efivar",
         "eglexternalplatform",
+        "elden",
         "elfutils",
         "endofunctors",
         "enummapset",
@@ -301,13 +303,18 @@
         "Neur",
         "nextest",
         "nixos",
+        "notif",
+        "notifs",
         "pandoc",
         "Pinentry",
         "pixbuf",
+        "pkgs",
         "pkill",
+        "popout",
         "poweroff",
         "pprint",
         "pqcrypto",
+        "prec",
         "quickshell",
         "randint",
         "randomart",
@@ -362,5 +369,7 @@
             "name": "Qt-5.15.19-linux-g++-x86_64_from_PATH",
             "path": "/usr/sbin/qtpaths"
         }
-    ]
+    ],
+    "extensions.autoUpdate": false,
+    "update.mode": "none"
 }
