@@ -298,16 +298,17 @@ ShellRoot {
                                 running: true
                                 repeat: true
                                 triggeredOnStart: true
-                                onTriggered: pkgCounter.running = true
+                                onTriggered: if (!pkgCounter.running) pkgCounter.running = true
                             }
                             Process {
                                 id: pkgCounter
                                 command: ["sh", "-c", "checkupdates && yay -Qua"]
                                 stdout: StdioCollector {
                                     onStreamFinished: {
+                                        const t = this.text;
                                         let count = 0;
-                                        for (let i = 0; i < this.text.length; i++) {
-                                            if (this.text[i] === '\n') count++;
+                                        for (let i = 0; i < t.length; i++) {
+                                            if (t.charCodeAt(i) === 10) count++;
                                         }
                                         pkgCount.text = count
                                     }
@@ -350,7 +351,7 @@ ShellRoot {
                                 Layout.alignment: Qt.AlignVCenter
                             }
                             Timer {
-                                interval: 500
+                                interval: 5000
                                 running: true
                                 repeat: true
                                 triggeredOnStart: true
@@ -406,7 +407,7 @@ ShellRoot {
                                 Layout.alignment: Qt.AlignVCenter
                             }
                             Timer {
-                                interval: 1000
+                                interval: 5000
                                 running: true
                                 repeat: true
                                 triggeredOnStart: true
