@@ -21,7 +21,7 @@ ShellRoot {
     id: root
 
     property real volume: (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100
-    property real battery: UPower.displayDevice
+    property var battery: UPower.displayDevice
     property real diskUsage: 0
     property real ramUsage: 0
     property real gpuLoad: 0
@@ -656,15 +656,7 @@ ShellRoot {
                                 thickness: 40
                                 Text {
                                     text: ["󱃍", "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][Math.round(parent.val * 0.11)]
-                                    // 󱃍
-                                    // 󰂎󰁺 󰁻󰁼󰁽 󰁾󰁿󰂀 󰂁󰂂󰁹
-                                    // 󰢟󰢜 󰂆󰂇󰂈 󰢝󰂉󰢞 󰂊󰂋󰂅
-                                    // 
-                                    // 󱃍
-                                    // 󰂎󱊡󱊢󱊣
-                                    // 󰢟󱊤󱊥󱊦
-                                    // 
-                                    // 
+                                    // text: ["󱃍", "󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"][Math.round(parent.val * 0.11)]
                                     color: parent.val <= 10 ? win.crit : parent.val <= 25 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font"
                                     font.pixelSize: 12
@@ -677,6 +669,7 @@ ShellRoot {
                                 property real val: battery.percentage * 100
                                 Behavior on val { NumAnim { type: NumAnim.Slow; duration: 1000; overshoot: 0.0 } }
                                 text: val.toFixed(0) + "%"
+                                Component.onCompleted: console.log(battery.percentage)
                                 color: val <= 10 ? win.crit : val <= 25 ? win.warn : win.accent
                                 font.family: "Fira Code Nerd Font Mono"
                                 font.pixelSize: 14
