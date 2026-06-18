@@ -38,18 +38,6 @@ Item {
         return Math.min(Math.max(val, min), max)
     }
 
-    function arcPath(cx, cy, r, aDeg, nDeg) {
-        aDeg = aDeg - 90
-        const toRad = d => d * Math.PI / 180;
-        const startX = cx + r * Math.cos(toRad(aDeg));
-        const startY = cy + r * Math.sin(toRad(aDeg));
-        const endX = cx + r * Math.cos(toRad(aDeg + nDeg));
-        const endY = cy + r * Math.sin(toRad(aDeg + nDeg));
-        const largeArc = Math.abs(nDeg) > 180 ? 1 : 0;
-        const sweep = nDeg > 0 ? 1 : 0;
-        return `M ${startX} ${startY} A ${r} ${r} 0 ${largeArc} ${sweep} ${endX} ${endY}`;
-    }
-
     Shape {
         width: root.size
         height: root.size
@@ -61,14 +49,30 @@ Item {
             strokeColor: barBgColor
             capStyle: ShapePath.RoundCap
             fillColor: "#00000000"
-            PathSvg { path: arcPath(root.size / 2, root.size / 2, root.size / 2 - root.thickness * root.size / 600, 0, 359.9) }
+            PathAngleArc {
+                centerX: root.size / 2
+                centerY: root.size / 2
+                radiusX: root.size / 2 - root.thickness * root.size / 600
+                radiusY: root.size / 2 - root.thickness * root.size / 600
+                startAngle: -90
+                sweepAngle: 359.9
+                moveToStart: true
+            }
         }
         ShapePath {
             strokeWidth: root.thickness * root.size / 300
             strokeColor: barFgColor
             capStyle: ShapePath.RoundCap
             fillColor: "#00000000"
-            PathSvg { path: arcPath(root.size / 2, root.size / 2, root.size / 2 - root.thickness * root.size / 600, 0, (Math.max(minVal, clamp(val, minVal, maxVal) - minVal) / (maxVal - minVal)) * 359.9) }
+            PathAngleArc {
+                centerX: root.size / 2
+                centerY: root.size / 2
+                radiusX: root.size / 2 - root.thickness * root.size / 600
+                radiusY: root.size / 2 - root.thickness * root.size / 600
+                startAngle: -90
+                sweepAngle: (Math.max(minVal, clamp(val, minVal, maxVal) - minVal) / (maxVal - minVal)) * 359.9
+                moveToStart: true
+            }
         }
     }
 
