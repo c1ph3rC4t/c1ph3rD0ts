@@ -12,6 +12,7 @@ import Quickshell.Io
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
+import Quickshell.Services.UPower
 import Quickshell.Services.Pipewire
 import Quickshell.Services.Notifications
 import C1ph3r.Blobs
@@ -20,6 +21,7 @@ ShellRoot {
     id: root
 
     property real volume: (Pipewire.defaultAudioSink?.audio.volume ?? 0) * 100
+    property real battery: UPower.displayDevice
     property real diskUsage: 0
     property real ramUsage: 0
     property real gpuLoad: 0
@@ -430,6 +432,12 @@ ShellRoot {
                                 }
                             }
 
+                            // 󰤮󰤯󰤟󰤢󰤥󰤨
+                            // 󰤮󰤫󰤠󰤣󰤦󰤩
+                            // 󰤮󰤬󰤡󰤤󰤧󰤪
+                            // 󰤮󱛏󱛋󱛌󱛍󱛎
+                            // 󰈁
+
                             Item { Layout.preferredWidth: 7.5 }
                         }
                     }
@@ -622,6 +630,59 @@ ShellRoot {
                                 font.pixelSize: 14
                                 Layout.alignment: Qt.AlignVCenter
                                 transform: Translate { y: 1 }
+                            }
+
+                            Item {
+                                Layout.preferredWidth: 7
+                                Layout.preferredHeight: parent.height - 35
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: 2
+                                    height: parent.height
+                                    radius: width / 2
+                                    color: win.accent
+                                }
+                                visible: UPower.displayDevice.isLaptopBattery
+                            }
+
+                            CircleBar {
+                                val: battery.percentage * 100
+                                valDisplayFormat: ""
+                                dur: 1000
+                                barBgColor: val <= 10 ? win.critDark : val <= 25 ? win.warnDark : win.accentDark
+                                barFgColor: val <= 10 ? win.crit : val <= 25 ? win.warn : win.accent
+
+                                size: parent.height - 24
+                                thickness: 40
+                                Text {
+                                    text: ["󱃍", "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][Math.round(parent.val * 0.11)]
+                                    // 󱃍
+                                    // 󰂎󰁺 󰁻󰁼󰁽 󰁾󰁿󰂀 󰂁󰂂󰁹
+                                    // 󰢟󰢜 󰂆󰂇󰂈 󰢝󰂉󰢞 󰂊󰂋󰂅
+                                    // 
+                                    // 󱃍
+                                    // 󰂎󱊡󱊢󱊣
+                                    // 󰢟󱊤󱊥󱊦
+                                    // 
+                                    // 
+                                    color: parent.val <= 10 ? win.crit : parent.val <= 25 ? win.warn : win.accent
+                                    font.family: "Fira Code Nerd Font"
+                                    font.pixelSize: 12
+                                    anchors.centerIn: parent
+                                    transform: Translate { x: 0.5; y: 0.5 }
+                                }
+                                visible: UPower.displayDevice.isLaptopBattery
+                            }
+                            Text {
+                                property real val: battery.percentage * 100
+                                Behavior on val { NumAnim { type: NumAnim.Slow; duration: 1000; overshoot: 0.0 } }
+                                text: val.toFixed(0) + "%"
+                                color: val <= 10 ? win.crit : val <= 25 ? win.warn : win.accent
+                                font.family: "Fira Code Nerd Font Mono"
+                                font.pixelSize: 14
+                                Layout.alignment: Qt.AlignVCenter
+                                transform: Translate { y: 1 }
+                                visible: UPower.displayDevice.isLaptopBattery
                             }
 
                             Item {
