@@ -655,8 +655,7 @@ ShellRoot {
                                 size: parent.height - 24
                                 thickness: 40
                                 Text {
-                                    text: ["󱃍", "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][Math.round(parent.val * 0.11)]
-                                    // text: ["󱃍", "󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"][Math.round(parent.val * 0.11)]
+                                    text: battery.state == UPowerDeviceState.Charging ? ["󱃍", "󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"][Math.round(parent.val * 0.11)] : ["󱃍", "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][Math.round(parent.val * 0.11)]
                                     color: parent.val <= 10 ? win.crit : parent.val <= 25 ? win.warn : win.accent
                                     font.family: "Fira Code Nerd Font"
                                     font.pixelSize: 12
