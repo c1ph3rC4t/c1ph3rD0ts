@@ -20,6 +20,7 @@ menu = "rofi -show drun"
 networkmanager = "kitty nmtui"
 screenshot = "grimblast --freeze copy area"
 colorPicker = "hyprpicker -a"
+record = "pkill -INT wl-screenrec || wl-screenrec -g \"$(slurp)\" -f ~/Videos/$(date -u +%Y-%m-%dT%H:%M:%SZ).mp4"
 
 fileManager = "kitty yazi"
 calculator = "kitty qalc"

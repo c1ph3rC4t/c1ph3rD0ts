@@ -13,8 +13,9 @@ hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("obsidian"))
 
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(colorPicker))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(record))
 
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("(pkill " .. ui .. " & pkill hyprpaper) && (" .. ui .. " & hyprpaper & hyprctl reload)"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("(pkill " .. ui .. " & pkill hyprpaper) && (" .. ui .. " & hyprpaper & hyprctl reload)"))
 
 hl.bind("SUPER + A", hl.dsp.exec_cmd("~/.config/scripts/otd-toggle-mode toggle-notify"))
 
@@ -42,7 +43,6 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("[float; size 900 550; min_size 900 550; max_size 900 550; center; stay_focused on] " .. fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
